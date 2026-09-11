@@ -1,0 +1,17 @@
+# KiCad: Lock-Dateien, Backups, lokale Einstellungen
+*.lck
+*-backups/
+*.kicad_prl
+fp-info-cache
+_autosave-*
+*.bak
+*.kicad_sch-bak
+*.kicad_pcb-bak
+
+# Office-Temp-Dateien (während Word/Excel offen ist)
+~$*
+
+# Betriebssystem
+Thumbs.db
+desktop.ini
+.DS_Store

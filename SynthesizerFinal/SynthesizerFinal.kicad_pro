@@ -1,0 +1,12 @@
+{
+  "board": {},
+  "boards": [],
+  "cvpcb": {"equivalence_files": []},
+  "libraries": {"pinned_footprint_libs": [], "pinned_symbol_libs": []},
+  "meta": {"filename": "SynthesizerFinal.kicad_pro", "version": 3},
+  "net_settings": {},
+  "pcbnew": {},
+  "schematic": {},
+  "sheets": [["0f1e2d3c-4b5a-4697-8899-aabbccddeeff", "Root"]],
+  "text_variables": {}
+}
