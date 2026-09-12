@@ -1,4 +1,52 @@
-# Analoger Synthesizer – finaler Gesamtschaltplan (Rev. 3)
+# Analoger Synthesizer – finaler Gesamtschaltplan (Rev. 4)
+
+> **Rev. 4 (12.09.2026)** — der Schaltplan ist jetzt **platinenreif**. Dateiformat
+> auf KiCad 10 angehoben, ERC weiterhin **0 Fehler, 0 Warnungen**, alle 305
+> Bauteile auf der Platine haben ein geprüftes Footprint. Das Layout der drei
+> Leiterplatten liegt in [`../Platinen/`](../Platinen/README.md).
+>
+> ### Gefundene Fehler (alle durch systematische Prüfungen, nicht durch Lesen)
+>
+> 1. **Filter C und D funktionierten überhaupt nicht.** Das Massesymbol der
+>    Ausgangsbuchse lag exakt auf dem Summenpunkt des zweiten Integrators und
+>    hat die virtuelle Masse des Operationsverstärkers gegen echte Masse
+>    kurzgeschlossen. Gefunden über die allgemeine Regel *ein OpAmp, dessen
+>    beide Eingänge am selben Netz hängen, kann nicht arbeiten* — von 46
+>    OpAmp-Einheiten waren genau diese zwei betroffen. Filter A und B waren in
+>    Ordnung.
+> 2. **C804 lag verkehrt herum** (≈ 1,8 V in Sperrrichtung). Um 180° gedreht.
+> 3. **Nirgends Stützkondensatoren direkt am IC.** 17 ICs hatten nur die
+>    Sammelversorgung. Neu: **29 × 100 nF** (einer pro Versorgungspin) und
+>    **14 × 10 µF** pro Platine — nötig, weil jede Platine ihre Spannung jetzt
+>    über ein Kabel bekommt.
+> 4. **Pegelstaffelung im Mixer.** Der Oszillatorausgang liefert bis 14 Vss, die
+>    BC547-Stufe blieb aber nur bis ca. 8 Vss linear — die obere Hälfte von
+>    sechs Potis hat nichts mehr gemacht ausser zu verzerren. Behoben mit
+>    `R801/802/803 47k → 100k` und `R806 330 → 470`.
+>
+> ### Bewusste Änderungen
+>
+> - **Distortion-Stufe umgebaut.** Sie war rund 15 dB leiser als der saubere
+>   Weg. Jetzt ist `U103A` Drive und weicher Begrenzer, der harte Begrenzer
+>   hängt passiv an dessen Ausgang, und `U103B` ist die **Aufhol-Verstärkung**.
+>   Ein Wert geändert, drei Leitungen umgehängt, **kein neues Bauteil**.
+>   Weich: −16 dB → −1,8 dB. Hart: −15 dB → +1,9 dB.
+> - **46 JST-XH-Stecker** an allen Platinengrenzen, 240 Stifte, jeder gegen die
+>   Netzliste geprüft. Die Bedienelemente sitzen im Bedienfeld und werden
+>   verdrahtet — ein Draht pro Lötfahne, 153 Stück. Siehe
+>   [`../Platinen/VERDRAHTUNG.md`](../Platinen/VERDRAHTUNG.md).
+> - Sicherungen und Verpolschutzdioden in der Versorgung, Poti-Kennlinien
+>   korrigiert (log statt lin, wo es um Lautstärke geht), `C901` auf ungepolt,
+>   18 Dioden von SMD auf bedrahtet.
+> - Alle 27 `lib_symbol_mismatch`-Warnungen beseitigt. **Deshalb nie blind
+>   „Update Symbols from Library" drücken**: beim `Conn_01x02` verschieben sich
+>   dabei die Pins um 1,27 mm, was `J904` still abgehängt hätte.
+>
+> Der Text unterhalb beschreibt weiterhin den Stand von Rev. 3 — die
+> Schaltungsauslegung, die Werte und die Begründungen gelten unverändert.
+
+---
+
 
 Ein einziger, **durchgehend verdrahteter** Schaltkreis auf einem flachen
 KiCad-9-Blatt (890 × 934 mm). Öffnen mit `SynthesizerFinal.kicad_pro`.
@@ -255,5 +303,10 @@ Die Versorgungs-Einheiten aller 16 ICs liegen gesammelt im Block
 |---|---|
 | `SynthesizerFinal.kicad_pro` / `.kicad_sch` | das Projekt |
 | `SynthesizerFinal.pdf` | Ausdruck des Schaltplans |
-| `BOM.csv` | Stückliste, 57 Positionen |
+| `BOM.csv` | Stückliste des Gesamtgeräts, 81 Positionen (Rev. 4) |
 | `erc.txt` | ERC-Bericht (0 Fehler, 0 Warnungen) |
+
+Die Platinen-Stücklisten stehen getrennt in
+[`../Platinen/Stuecklisten/`](../Platinen/Stuecklisten/) — je eine pro
+Leiterplatte, weil die Oszillator-Platine dreimal und die Filter-Platine
+viermal bestückt wird.

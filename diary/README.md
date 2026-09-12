@@ -13,3 +13,4 @@ Eine Datei pro Arbeitstag: `diary/JJJJ-MM-TT.md`
 <!-- Neueste zuletzt. Format: - [JJJJ-MM-TT](JJJJ-MM-TT.md) — Kurzbeschreibung -->
 
 - [2026-08-12](2026-08-12.md) — Projektumfang festgelegt, Zeitplan bis zu den Herbstferien erstellt, Dokumentation wieder aufgenommen, Theorie: Grundlagen & RC-Glieder
+- [2026-09-12](2026-09-12.md) — Platinen-Layout: drei Leiterplatten aus dem Schaltplan abgeleitet, geroutet und Fertigungsdaten erzeugt

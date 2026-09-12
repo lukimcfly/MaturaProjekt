@@ -95,3 +95,19 @@ einstellbaren Widerstand ändert sich die Frequenz.
 Standbilder aus dem Video (Kurvenform, Frequenz an beiden Anschlagpunkten von
 RVar) sollten noch als PNG gesichert werden — im schriftlichen Kommentar lässt
 sich kein Video abdrucken.
+
+### 2026-09-12 — Leiterplatten-Layouts (`Schaltplaene/2026-09-12_platine-*.png`)
+
+3D-Ansichten der fertig gerouteten Platinen, jeweils Ober- und Unterseite.
+
+| Datei | Inhalt |
+|---|---|
+| `2026-09-12_platine-hauptplatine-oben.png` | Hauptplatine, Bestückungsseite. Oben die Versorgung (Sicherungen, Verpolschutz, Siebung), in der Mitte der Mixer, unten rechts die LM386-Endstufe |
+| `2026-09-12_platine-hauptplatine-unten.png` | Hauptplatine, Rückseite — fast durchgehende Massefläche, nur wenige kurze Leiterbahnen |
+| `2026-09-12_platine-filter-oben.png` | Filter-Platine, Bestückungsseite. Die beiden Integratoren spiegeln sich um `U401` |
+| `2026-09-12_platine-filter-unten.png` | Filter-Platine, Rückseite |
+
+Warum die Rückseite fast leer ist: auf einer zweilagigen Platine **ist** die
+Rückseite die Massefläche. Jede Leiterbahn dort schneidet einen Schlitz hinein,
+den der Rückstrom umfliessen muss — deshalb kostet der Router das Fahren auf der
+Rückseite extra und benutzt sie nur zum Kreuzen.

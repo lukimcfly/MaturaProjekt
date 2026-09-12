@@ -17,6 +17,10 @@ die schriftlichen Abgabedokumente.
 | [`Bilder/`](Bilder/README.md) | Schaltpläne, Aufbaufotos, Messungen |
 | [`Schul-Unterlagen/`](Schul-Unterlagen/README.md) | Vorgaben, Kriterien, Formulare von der Schule |
 | [`Unsere-Materialien/`](Unsere-Materialien/README.md) | Logbuch und schriftlicher Kommentar zur Abgabe |
+| [`SynthesizerFinal/`](SynthesizerFinal/README.md) | Gesamtschaltplan des Synthesizers (KiCad) |
+| [`Platinen/`](Platinen/README.md) | Die drei Leiterplatten: Layout, Gerber, Stücklisten, Verdrahtung |
+| [`Werkzeuge/`](Werkzeuge/README.md) | Die Skripte, mit denen Schaltplan und Platinen erzeugt wurden |
+| `KicadCircuit/` | Ursprüngliche Einzelschaltpläne (Vorstufe, nur noch als Vergleich) |
 
 ## Arbeitsregel
 
