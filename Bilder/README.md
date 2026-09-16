@@ -44,6 +44,8 @@ direkt dem passenden Tagebucheintrag zuordnen.
 | `Schaltplaene/2026-08-19_saw-oszillator-kicad-v2.png` | 19.08.2026 | KiCad-Schaltplan Sägezahn-Oszillator, aktuelle Revision mit RVar zur Frequenzeinstellung |
 | `Schaltplaene/2026-08-19_saw-oszillator-stromfluss.png` | 19.08.2026 | Erklärskizze zum Stromfluss mit Sägezahn-Kurve und Schaltschwellen V_T+ / V_T− |
 | `Messungen/2026-08-19_falstad-simulation-saegezahn.mp4` | 19.08.2026 | Bildschirmaufnahme der Falstad-Simulation: Schaltung und Sägezahn-Kurvenform mit Frequenzregelung |
+| `Schaltplaene/2026-09-16_platine-oszillator-oben.png` | 16.09.2026 | Oszillator-Platine, Bestückungsseite — die fertig geroutete Version |
+| `Schaltplaene/2026-09-16_platine-oszillator-unten.png` | 16.09.2026 | Oszillator-Platine, Rückseite mit der Massefläche |
 | *(fehlt noch)* `Schaltplaene/2026-08-12_oszillator-schmitt-trigger.png` | 12.08.2026 | erste Revision des Oszillators (RHigh 20 kΩ, RLow/RB 270 Ω) |
 
 ---
@@ -95,3 +97,37 @@ einstellbaren Widerstand ändert sich die Frequenz.
 Standbilder aus dem Video (Kurvenform, Frequenz an beiden Anschlagpunkten von
 RVar) sollten noch als PNG gesichert werden — im schriftlichen Kommentar lässt
 sich kein Video abdrucken.
+
+### 2026-09-12 — Leiterplatten-Layouts (`Schaltplaene/2026-09-12_platine-*.png`)
+
+3D-Ansichten der fertig gerouteten Platinen, jeweils Ober- und Unterseite.
+
+| Datei | Inhalt |
+|---|---|
+| `2026-09-12_platine-hauptplatine-oben.png` | Hauptplatine, Bestückungsseite. Oben die Versorgung (Sicherungen, Verpolschutz, Siebung), in der Mitte der Mixer, unten rechts die LM386-Endstufe |
+| `2026-09-12_platine-hauptplatine-unten.png` | Hauptplatine, Rückseite — fast durchgehende Massefläche, nur wenige kurze Leiterbahnen |
+| `2026-09-12_platine-filter-oben.png` | Filter-Platine, Bestückungsseite. Die beiden Integratoren spiegeln sich um `U401` |
+| `2026-09-12_platine-filter-unten.png` | Filter-Platine, Rückseite |
+
+Warum die Rückseite fast leer ist: auf einer zweilagigen Platine **ist** die
+Rückseite die Massefläche. Jede Leiterbahn dort schneidet einen Schlitz hinein,
+den der Rückstrom umfliessen muss — deshalb kostet der Router das Fahren auf der
+Rückseite extra und benutzt sie nur zum Kreuzen.
+
+### 2026-09-16 — Oszillator-Platine (`Schaltplaene/2026-09-16_platine-oszillator-*.png`)
+
+Die dritte und dichteste Platine, jetzt vollständig geroutet.
+
+| Datei | Inhalt |
+|---|---|
+| `2026-09-16_platine-oszillator-oben.png` | Bestückungsseite. Oben die Versorgung mit den beiden Elkos, links `U103` (OPA4196) mit den sechs Dioden der Wellenformung, rechts `U101` (TL074) in der Fassung, unten die beiden grossen Panel-Stecker `POTIS` und `SCHALTER` |
+| `2026-09-16_platine-oszillator-unten.png` | Rückseite. Hier ist mehr Kupfer zu sehen als bei den anderen beiden Platinen — die Platine ist dichter, der Router muss öfter auf die Rückseite ausweichen |
+
+Auffällig auf der Unterseite ist **ein längerer Zug quer über die Platine**: das
+Netz `O1_AINV`. Dafür wurde eine Sperrfläche bewusst aufgehoben; die Begründung
+und die gemessenen Kosten stehen in
+[`Platinen/README.md`](../Platinen/README.md).
+
+Die 27 Widerstände stehen **senkrecht** (ein Draht um 180° zurückgebogen) — auf
+den Bildern gut zu erkennen. Liegend hätten sie neben den vier ICs keinen Platz
+gelassen.
