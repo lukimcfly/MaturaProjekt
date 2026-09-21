@@ -42,6 +42,7 @@ wurde.
 | `Fertigung/*.zip` | die Dateien für den Platinenhersteller: Gerber, Bohrdaten, Bohrplan. So hochladen wie sie sind |
 | `Stuecklisten/` | eine Stückliste pro Platine |
 | [`VERDRAHTUNG.md`](VERDRAHTUNG.md) | **die wichtigste Datei beim Zusammenbau**: welches Kabel von wo nach wo, Draht für Draht |
+| [`BEDIENFELD-ERGAENZUNGEN.md`](BEDIENFELD-ERGAENZUNGEN.md) | nachträglich dazugekommen: Oszillator ein/aus, Mixer-Fader, Buchse für eigenen Lautsprecher, Modus-Taster, Arduino-Anschluss |
 | `*-bestueckung.pdf` | Bestückungsplan zum Ausdrucken |
 
 ## Aufbau der Platinen

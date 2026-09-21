@@ -69,6 +69,21 @@ def toggle(cx, cy, label, up, down, ref):
     text(cx, cy + 46, label, 12, 700)
     text(cx, cy + 59, ref, 10, 400, REF)
 
+def new_badge(x, y):
+    add('<rect x="%.1f" y="%.1f" width="34" height="15" rx="7" fill="#D85A30"/>' % (x, y))
+    text(x + 17, y + 11, 'NEU', 9, 700, '#ffffff')
+
+def slider(cx, top, length, label, ref, pos=0.6):
+    add('<rect x="%.1f" y="%.1f" width="8" height="%.1f" rx="4" fill="#2C2C2A"/>' % (cx - 4, top, length))
+    for k in range(11):
+        yy = top + length * k / 10
+        add('<line x1="%.1f" y1="%.1f" x2="%.1f" y2="%.1f" stroke="%s" stroke-width="1"/>' % (cx + 12, yy, cx + (22 if k % 5 == 0 else 17), yy, MUTED))
+    cy = top + length * (1 - pos)
+    add('<rect x="%.1f" y="%.1f" width="30" height="18" rx="3" fill="#3a3a38" stroke="#1c1c1b" stroke-width="1.5"/>' % (cx - 15, cy - 9))
+    add('<line x1="%.1f" y1="%.1f" x2="%.1f" y2="%.1f" stroke="#fff" stroke-width="2"/>' % (cx - 11, cy, cx + 11, cy))
+    text(cx, top + length + 24, label, 13, 700)
+    text(cx, top + length + 38, ref, 10, 400, REF)
+
 def jack(cx, cy, label, ref):
     add('<circle cx="%.1f" cy="%.1f" r="11" fill="#c9c7be" stroke="%s" stroke-width="1.5"/>' % (cx, cy, MUTED))
     add('<circle cx="%.1f" cy="%.1f" r="4.5" fill="#1c1c1b"/>' % (cx, cy))
@@ -86,6 +101,8 @@ for i in range(3):
     panel(x0, y0, w, h, 'OSZILLATOR %d' % (i + 1), C_OSC, C_OSC_S, 'Klangquelle')
     knob(x0 + 62, y0 + 128, 36, 'Tonhöhe', 'RV_01 + RV_02 (Tandem)', '48 Hz – 4,9 kHz', pointer=-20)
     knob(x0 + 180, y0 + 250, 25, 'Amplitude', 'RV_05', pointer=40)
+    toggle(x0 + 62, y0 + 262, 'Oszillator', 'ein', 'aus', 'SW_05')
+    new_badge(x0 + 82, y0 + 232)
     rotary(x0 + 180, y0 + 128, 25, 'Wellenform', 'SW_01', ['Sinus', 'Dreieck', 'Rechteck', 'Sägezahn'], lab_r=42, start=-100, span=200)
     # distortion block
     dx, dy = x0 + 285, y0 + 56
@@ -105,8 +122,10 @@ for i in range(3):
 # ---------------- mixer ----------------
 x0, y0, w, h = 20, 528, 190, 460
 panel(x0, y0, w, h, 'MIXER', C_MIX, C_MIX_S, 'Hauptplatine')
-for k, (cy, pt) in enumerate(((y0 + 110, -30), (y0 + 240, 20), (y0 + 370, -60))):
-    knob(x0 + 95, cy, 23, 'Kanal %d' % (k + 1), 'RV80%d · Pegel OSZ %d' % (k + 1, k + 1), pointer=pt)
+for k, pos in enumerate((0.7, 0.45, 0.85)):
+    slider(x0 + 42 + k * 54, y0 + 90, 270, 'Kanal %d' % (k + 1), 'RV80%d' % (k + 1), pos)
+text(x0 + 95, y0 + 428, 'Fader: Pegel von Oszillator 1-3', 11, 400, MUTED)
+new_badge(x0 + 140, y0 + 12)
 
 # ---------------- filters ----------------
 names = [('A', 'fest nach dem Mixer'), ('B', 'fest nach Filter A'), ('C', 'frei per Patchkabel'), ('D', 'frei per Patchkabel')]
@@ -151,8 +170,10 @@ add('<circle cx="%d" cy="%d" r="46" fill="#d9d7ce" stroke="%s" stroke-width="1.5
 for rr in (10, 20, 30, 40):
     add('<circle cx="%d" cy="%d" r="%d" fill="none" stroke="#8a8880" stroke-width="1"/>' % (gx, gy, rr))
 text(gx, gy + 64, 'Lautsprecher 8 Ω', 12, 700)
+jack(gx + 18, y0 + 382, 'Ext. Lautsprecher', '6,3 mm, schaltet ab')
+new_badge(gx + 38, y0 + 358)
 # power
-toggle(x0 + 238, y0 + 340, 'Netz', 'ein', 'aus', 'Hauptschalter')
+toggle(x0 + 232, y0 + 340, 'Netz', 'ein', 'aus', 'Hauptschalter')
 
 # ---------------- rear + summary ----------------
 yb = 1006
@@ -160,9 +181,9 @@ add('<rect x="20" y="%d" width="%d" height="78" rx="10" fill="#fafaf7" stroke="#
 text(36, yb + 24, 'Signalweg:', 12, 700, INK, 'start')
 text(118, yb + 24, 'Oszillator 1-3 → Mixer → Filter A → Filter B → Master → Lautsprecher.   Filter C, D: per Patchkabel zwischen Send und Return eines Oszillators (Solo-Filter ein).', 12, 400, INK, 'start')
 text(36, yb + 46, 'Pro Gerät:', 12, 700, INK, 'start')
-text(118, yb + 46, '24 Drehknöpfe (3 + 4 davon Tandem-Potis) · 7 Drehschalter · 9 Kippschalter + Netzschalter · 1 Taster · 13 Klinkenbuchsen · Display · Lautsprecher', 12, 400, INK, 'start')
+text(118, yb + 46, '21 Drehknöpfe (3 + 4 davon Tandem) · 3 Fader · 7 Drehschalter · 12 Kippschalter + Netzschalter · 1 Taster · 14 Buchsen · Display · Lautsprecher', 12, 400, INK, 'start')
 text(36, yb + 68, 'Rückseite:', 12, 700, INK, 'start')
-text(118, yb + 68, 'DC-Buchse 12 V (Netzteil) · alle Teile stehen in Einkauf/Einkaufsliste_Synthesizer.xlsx', 12, 400, INK, 'start')
+text(118, yb + 68, 'DC-Buchse 12 V (Netzteil) · NEU = Ergänzung vom 21.09., Verdrahtung in Platinen/BEDIENFELD-ERGAENZUNGEN.md', 12, 400, INK, 'start')
 add('</svg>')
 
 html = '<html><head><meta charset="utf-8"><style>body{margin:0;background:#fff}</style></head><body>' + '\n'.join(out) + '</body></html>'
