@@ -147,6 +147,8 @@ panel = [
     ('Klinkenbuchse', '3,5 mm mono', 'Einbaubuchse, isoliert', 'J_01..J_03 je Osz., Filter C/D ein/aus', 13, 2, MUS, 'Klinkenbuchse 3,5mm mono isoliert', 1.00, ''),
     ('Drehknopf', 'für 6-mm-Achse', 'mit Madenschraube', '24 Potis + 7 Drehschalter', 31, 3, MUS, 'Drehknopf 6mm Achse', 1.00,
      'Achse der Potis vor dem Kauf abgleichen (6 mm oder 1/4")'),
+    ('Taster', 'Schliesser, tastend', 'Einbau ca. 7 mm', 'Oszilloskop-Modus ZEIT/FIGUR/FREI', 1, 1, MUS, 'Taster Schliesser tastend', 1.50,
+     'zwischen Arduino-Pin RESET und GND - wirkt wie der RESET-Knopf auf dem Arduino, der im Gehäuse sitzt'),
     ('Lautsprecher', '8 Ω, ≥ 0,5 W', 'Ø 50-77 mm', 'an J904', 1, 0, DIS, 'Lautsprecher 8 Ohm 1W 66mm', 5.00,
      'Der vorhandene 4-Ω-Lautsprecher überlastet den LM386 an 12 V eher - 8 Ω wie geplant'),
     ('Patchkabel', '3,5 mm mono', '30 cm', 'Filter C/D einschleifen', 4, 0, MUS, 'Patchkabel 3,5mm 30cm', 2.00, ''),

@@ -81,7 +81,7 @@ werden über Send/Return in den Filter-Port eines Oszillators eingeschleift.
 | **Wellenform** je Oszillator | `SW_01`, 4 Stellungen | Sinus / Dreieck / Rechteck / Sägezahn | war vorhanden |
 | **Mixer-Pegel** je Kanal | `RV801/802/803`, 10 kΩ | 0 … voll | war vorhanden |
 | **Filter-Cutoff** je Filter | `RV_01`/`RV_02`, 2-fach-Gleichlauf 100 kΩ | 106 Hz … 10,6 kHz | **neu** |
-| **Filter-Pegel** je Filter | `RV_03`, 47 kΩ | Verstärkung 1 … 5,7 | war vorhanden |
+| **Resonanz** je Filter | `RV_03`, 47 kΩ | Verstärkung 1 … 5,7 | war vorhanden |
 | **Master-Lautstärke** | `RV901`, 10 kΩ log | 0 … voll | war vorhanden |
 | **Distortion** | `SW_03` ein/aus, `SW_02` weich/hart, `RV_03`/`RV_04` Drive | – | war vorhanden |
 
@@ -148,7 +148,7 @@ Alle Werte sind **neu** – im Original war kein einziger gesetzt.
 | `C_04` / `L_02` | 220 nF / 68 mH | Bandpass, untere Ecke ≈ 650 Hz |
 | `C_05` ∥ `L_03` | 680 nF ∥ 33 mH | Bandsperre, Kerbe bei 1,06 kHz |
 | `R_03` | 600 Ω | Abschluss der Bandsperre |
-| `RV_03` / `R_05` | 47 kΩ / 10 kΩ | Ausgangsverstärker, Verstärkung 1 … 5,7 |
+| `RV_03` / `R_05` | 47 kΩ / 10 kΩ | Resonanz: führt den Bandpass auf den Eingangssummierer zurück (Güte) |
 
 Die LC-Zweige sind auf **600 Ω** Wellenwiderstand ausgelegt – damit bleiben die
 Spulen bei 33 / 68 mH und sind als normale Drosseln beschaffbar.

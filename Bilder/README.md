@@ -46,6 +46,7 @@ direkt dem passenden Tagebucheintrag zuordnen.
 | `Messungen/2026-08-19_falstad-simulation-saegezahn.mp4` | 19.08.2026 | Bildschirmaufnahme der Falstad-Simulation: Schaltung und Sägezahn-Kurvenform mit Frequenzregelung |
 | `Schaltplaene/2026-09-16_platine-oszillator-oben.png` | 16.09.2026 | Oszillator-Platine, Bestückungsseite — die fertig geroutete Version |
 | `Schaltplaene/2026-09-16_platine-oszillator-unten.png` | 16.09.2026 | Oszillator-Platine, Rückseite mit der Massefläche |
+| `Schaltplaene/2026-09-21_bedienfeld-uebersicht.png` | 21.09.2026 | Bedienfeld: alle 24 Drehknöpfe, 7 Drehschalter, 10 Kippschalter, Modus-Taster, 13 Buchsen, Display und Lautsprecher eines Geräts, mit Referenzen aus VERDRAHTUNG.md |
 | *(fehlt noch)* `Schaltplaene/2026-08-12_oszillator-schmitt-trigger.png` | 12.08.2026 | erste Revision des Oszillators (RHigh 20 kΩ, RLow/RB 270 Ω) |
 
 ---
