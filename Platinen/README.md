@@ -114,6 +114,36 @@ Regelverletzungen sind:
 
 Die Skripte dazu liegen in [`../Werkzeuge/`](../Werkzeuge/README.md).
 
+## Geprüft gegen die Fertigungsgrenzen von JLCPCB (21.09.2026)
+
+Hersteller: **JLCPCB** (https://jlcpcb.com). Alle drei Platinen wurden mit
+[`../Werkzeuge/jlccheck.py`](../Werkzeuge/jlccheck.py) direkt aus den Platinendateien
+vermessen und mit der Tabelle unter https://jlcpcb.com/capabilities/pcb-capabilities
+verglichen – bei widersprüchlichen Angaben dort jeweils mit dem strengeren Wert.
+
+| Prüfpunkt | JLCPCB min. | Unsere Platinen |
+|---|---|---|
+| Leiterbahnbreite | 0,127 mm | 0,3 mm |
+| Via-Bohrung | 0,3 mm | 0,4 mm |
+| Via-Restring | 0,15 mm | 0,2 mm |
+| Restring bedrahteter Pads | 0,25 mm (empfohlen) | 0,35 mm |
+| Befestigungslöcher (NPTH) | 0,5 mm | 3,2 mm |
+| Loch-zu-Loch | 0,45 mm | ≥ 0,85 mm |
+| Kupfer zur Platinenkante | 0,2 mm | 0,3 mm |
+| Bestückungsdruck: Schrifthöhe / Strichstärke | 1,0 / 0,15 mm | 1,0 / 0,15 mm |
+| Bestückungsdruck: Linien | 0,15 mm | 0,15 mm |
+
+**Eine Änderung war nötig:** Die Bauteil-Umrisse aus der KiCad-Standardbibliothek
+sind mit 0,12 mm gezeichnet – dünner als die 0,15 mm, die JLCPCB zuverlässig druckt.
+[`silkwiden.py`](../Werkzeuge/silkwiden.py) hat alle 2 468 solchen Linien auf 0,15 mm
+verbreitert. Nur die Strichstärke hat sich geändert; an Kupfer, Bohrungen und
+Bauteilpositionen nichts. Danach erneut geprüft: DRC fehlerfrei, kein offenes Netz,
+Masseflächen auf den Quadratmillimeter gleich wie vorher. Der Stand davor liegt im
+Archiv (`archiv/<platine>/rev4-pre-jlc/`).
+
+**Einstellungen beim Bestellen** (alles andere auf Standard lassen): Layers 2 ·
+PCB Thickness 1,6 mm · Quantity 5 · Surface Finish HASL (bleifrei, falls wählbar).
+
 ## Vor dem Bestellen
 
 - [ ] Die Gerber in einem Viewer ansehen (z. B. der kostenlose Online-Viewer des
