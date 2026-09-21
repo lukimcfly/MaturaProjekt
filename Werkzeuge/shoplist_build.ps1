@@ -145,7 +145,7 @@ $notes = @(
  '• Stromversorgung: den 0-V-Ausgang des TRACO-Wandlers mit dem Minus des 12-V-Netzteils verbinden - sonst misst der Arduino ohne gemeinsame Masse.',
  '• Achsen: Potis und Drehknöpfe vom selben Händler, damit Achse (6 mm oder 1/4") und Knopf zusammenpassen.',
  '• Bestellung aus Deutschland (Musikding): ab ca. CHF 62 Warenwert fällt Schweizer MWST an, dazu eine Gebühr des Paketdienstes. Eine gesammelte Bestellung ist günstiger als mehrere kleine.',
- '• Die Eingangsstufe des Arduino (Blatt Arduino, "VORLÄUFIG") ist noch nicht gezeichnet - die Teile sind bereits eingeplant.'
+ '• Arduino nie direkt an ein Audiosignal: die Signale schwingen um 0 V (auch negativ). Immer über die Eingangsstufe (Blatt Arduino), Abgriff FILT_B_OUT an J817.'
 )
 foreach ($n in $notes) { $ov.Cells.Item($row,2).Value2 = $n; $row++ }
 $ov.Cells.Item($row - $notes.Count,2).Font.Bold = $true
