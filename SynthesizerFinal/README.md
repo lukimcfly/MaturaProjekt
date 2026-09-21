@@ -76,7 +76,7 @@ werden über Send/Return in den Filter-Port eines Oszillators eingeschleift.
 
 | Regler | Bauteil | Bereich | Status |
 |---|---|---|---|
-| **Frequenz** je Oszillator | `RV_02` (Ebene A) + `RV_01` (Ebene B), 2-fach-Gleichlauf 1 MΩ | ca. 95 Hz … 9,6 kHz | neu gekoppelt |
+| **Frequenz** je Oszillator | `RV_02` (Ebene A) + `RV_01` (Ebene B), 2-fach-Gleichlauf 1 MΩ | ca. 48 Hz … 4,9 kHz | neu gekoppelt, Bereich am 21.09. um eine Oktave gesenkt |
 | **Amplitude** je Oszillator | `RV_05`, 10 kΩ log | 0 … voll | **neu** |
 | **Wellenform** je Oszillator | `SW_01`, 4 Stellungen | Sinus / Dreieck / Rechteck / Sägezahn | war vorhanden |
 | **Mixer-Pegel** je Kanal | `RV801/802/803`, 10 kΩ | 0 … voll | war vorhanden |
@@ -102,14 +102,14 @@ Werte**. Diese Tabelle listet, was gegenüber `KicadCircuit/` anders ist.
 | Neu | Alt | Wert alt → neu | Warum |
 |---|---|---|---|
 | `RV_01` | `0Ω-25kΩ` | 25 kΩ → **1 MΩ lin** | muss gleich gross sein wie Ebene A, damit ein Gleichlaufpoti funktioniert |
-| `R_01` | `RHigh` | 5 kΩ → **10 kΩ** | setzt zusammen mit RV_01 den Sägezahnbereich auf 82 Hz … 8,2 kHz |
-| `C_01` | `C4` | 100 nF → **33 nF** | Sägezahnbereich an den Funktionsgenerator angeglichen |
+| `R_01` | `RHigh` | 5 kΩ → **10 kΩ** | Vorwiderstand des Sägezahns: begrenzt die höchste Frequenz (siehe 3.9) |
+| `C_01` | `C4` | 100 nF → **56 nF** (Folie) | Sägezahn 50 Hz … 4,9 kHz, im Gleichlauf mit dem Funktionsgenerator (siehe 3.9) |
 | `R_02` | `RB` | 220 Ω → **1 kΩ** | 4,3 mA Basisstrom reichen; 220 Ω hätten das Gatter überlastet |
 | `R_03` | `RLow` | 220 Ω → **220 Ω** | unverändert; Rücklaufzeit 3,3 µs = 2,7 % der Periode |
 | `RV_02` | `R6` | 100 kΩ → **1 MΩ lin** | Frequenzpoti, Ebene A |
-| `C_02` | `C7` | 33 nF → **6,8 nF** | ergibt zusammen mit RV_02 den Bereich 95 Hz … 9,6 kHz |
+| `C_02` | `C7` | 33 nF → **15 nF** (Folie) | ergibt zusammen mit RV_02 den Bereich 48 Hz … 4,9 kHz |
 | `R_04` | `R8` | 100 kΩ → **47 kΩ** | Hysterese, bestimmt zusammen mit R_05 die Dreieckamplitude |
-| `R_05` | `R9` | 22 kΩ → **18 kΩ** | Dreieck 8 Vss (= 2 × Vsat × R_05/R_04) |
+| `R_05` | `R9` | 22 kΩ → **16 kΩ** | Dreieck ≈ 7 Vss (= 2 × Vsat × R_05/R_04) |
 | `R_06` | `R10` | 10 kΩ → **10 kΩ** | unverändert, jetzt Vorwiderstand des Frequenzpotis |
 | `R_07` | `R13` | 10 kΩ → **10 kΩ** | unverändert |
 | `R_08` | `R12` | 100 kΩ → **47 kΩ** | dämpft das Dreieck auf den Bereich, in dem die Dioden runden |
@@ -117,7 +117,7 @@ Werte**. Diese Tabelle listet, was gegenüber `KicadCircuit/` anders ist.
 | `R_10` | `R14` | 100 kΩ → **10 kΩ** | Eingangsableitung |
 | `C_03` | – | – → **1 µF** | **neu**: trennt den Gleichanteil hinter dem Wellenformschalter |
 | `C_04` | – | – → **1 µF** | **neu**: Gleichspannungstrennung des Sägezahns |
-| `R_23/24/25` | – | – → **10 k / 68 k / 10 kΩ** | **neu**: hebt den Sägezahn (nur ~1 Vss) auf Pegel |
+| `R_23/24/25` | – | – → **10 k / 56 k / 10 kΩ** | **neu**: hebt den Sägezahn (≈ 1 Vss) auf ≈ 5,5 Vss (siehe 3.9) |
 | `R_26/27` | – | – → **22 k / 10 kΩ** | **neu**: teilt das Rechteck von 21 Vss auf ~6,6 Vss |
 | `R_14` | `R16` | – → **10 kΩ** | Eingang weiche Verzerrung |
 | `RV_03` | `R1` | – → **100 kΩ** | Drive weich |
@@ -224,13 +224,48 @@ Nach dem Umbau liegen alle vier Kurven in derselben Grössenordnung:
 | Wellenform | Amplitude |
 |---|---|
 | Rechteck (nach Teiler `R_26/27`) | ≈ 6,6 Vss |
-| Dreieck | ≈ 8 Vss |
+| Dreieck | ≈ 7 Vss |
 | Sinus | ≈ 7 Vss |
-| Sägezahn (nach `U_03D`) | ≈ 6,8 Vss |
+| Sägezahn (nach `U_03D`) | ≈ 5,5 Vss (3,8 … 7,8 je nach Exemplar, siehe 3.9) |
 
 Ohne den Teiler hätte das Rechteck mit 21 Vss die Ausgangsstufe (Verstärkung 2)
 in die Begrenzung getrieben. Der Sägezahn läuft durch die invertierende
 Verstärkung als **fallende** Rampe – im Fourier-Spektrum identisch.
+
+### 3.9  Frequenzbereich und Schmitt-Trigger-Schwellen (21.09.2026)
+
+Beim Nachrechnen vor der Bestellung zeigte sich: Die Simulationen hatten für den
+74LVC2G17 Schaltschwellen von 1,8 V / 1,2 V angenommen. Das Datenblatt (TI
+SN74LVC2G17, Tabelle *Electrical Characteristics*, interpoliert auf 5 V) gibt aber
+
+| | min | max |
+|---|---|---|
+| obere Schwelle VT+ | 2,05 V | 3,4 V |
+| untere Schwelle VT− | 1,25 V | 2,25 V |
+| Hysterese | 0,65 V | 1,35 V |
+
+Weil der Sägezahn genau zwischen diesen Schwellen hin- und herläuft, bestimmen
+sie **sowohl seine Frequenz als auch seine Amplitude**. Mit den echten Werten
+(Simulation mit feinem Zeitschritt, auf 2 % konvergiert):
+
+| | vorher | nachher |
+|---|---|---|
+| Funktionsgenerator (Sinus/Dreieck/Rechteck) | 107 Hz … 10,8 kHz | **48 Hz … 4,9 kHz** |
+| Sägezahn, typisches Exemplar | 59 Hz … 5,8 kHz | **50 Hz … 4,9 kHz** |
+| Sägezahn-Pegel | 7 … 15 Vss (Begrenzung!) | **3,8 … 7,8 Vss**, typisch 5,5 |
+
+Vorher lag der Sägezahn also **fast eine Oktave tiefer** als die anderen
+Wellenformen am selben Knopf – beim Umschalten wäre der Ton gesprungen – und er
+hätte bei hoher Amplitude die Ausgangsstufe übersteuert. Drei Werte behoben das,
+ohne Änderung an der Platine (gleiche Footprints): `C_02` 6,8 → 15 nF,
+`C_01` 47 → 56 nF, `R_24` 110 → 56 kΩ. Dabei wurde der Bereich bewusst **eine
+Oktave tiefer** gelegt: 48 Hz reicht bis zum Bass (tiefste Bass-Saite 41 Hz),
+4,9 kHz bis über den höchsten Klavierton (4,2 kHz).
+
+**Was bleibt:** Die Streuung der Schwellen von Exemplar zu Exemplar ist gross.
+Mit einem ungünstigen Chip kann der Sägezahn trotz allem bis zu etwa ±50–70 %
+neben den anderen Wellenformen liegen. Das lässt sich nur nach dem Aufbau
+korrigieren: mit dem Arduino-Oszilloskop messen und `C_01` tauschen.
 
 ### 3.7  Durchgehende Verdrahtung (Rev. 3)
 
@@ -281,6 +316,12 @@ Die Versorgungs-Einheiten aller 16 ICs liegen gesammelt im Block
 ---
 
 ## 5  Was du noch prüfen solltest
+
+* **Frequenzpoti: linear oder logarithmisch?** Mit einem *linearen* 1-MΩ-Poti
+  liegt die höchste Oktave auf dem ersten **1 %** des Drehwegs, die tiefste auf
+  den letzten 37 % – hohe Töne sind kaum einzustellen. Ein **logarithmisches**
+  Poti (Kennlinie „A") verteilt die Oktaven gleichmässig über den Drehweg. Es ist
+  ein Bedienfeld-Teil und ändert nichts an den Platinen; beim Teilekauf entscheiden.
 
 * **Spulen 33 mH / 68 mH** sind bei den Filtern die teuersten und
   toleranzbehaftetsten Teile (oft ±10 %). Die angegebenen Eckfrequenzen

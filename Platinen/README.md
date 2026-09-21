@@ -144,6 +144,32 @@ Archiv (`archiv/<platine>/rev4-pre-jlc/`).
 **Einstellungen beim Bestellen** (alles andere auf Standard lassen): Layers 2 ·
 PCB Thickness 1,6 mm · Quantity 5 · Surface Finish HASL (bleifrei, falls wählbar).
 
+## Bestückung: gemischt (JLCPCB + von Hand)
+
+Entschieden am 21.09.2026: **JLCPCB lötet nur die SMD-Chips** – drei auf der
+Oszillator-Platine, einer auf der Filter-Platine –, alles andere wird von Hand
+bestückt. Diese winzigen Chips sind das Einzige, was sich von Hand schwer löten lässt; alles Übrige ist bedrahtet,
+lässt sich leicht tauschen, und die Potis sitzen ohnehin im Bedienfeld.
+
+| Bauteil | Typ | Gehäuse | LCSC-Nr. |
+|---|---|---|---|
+| U102 | SN74LVC2G17DBVR | SOT-23-6 | C10429 |
+| U103 | OPA4196IDR | SOIC-14 | C2057385 |
+| U104 | OPA1662AIDR | SOIC-8 | C882794 |
+| U401 (Filter) | OPA4196IDR | SOIC-14 | C2057385 |
+
+Dateien für die Bestellung in `Fertigung/`: je eine `…-BOM-jlcpcb.csv` und
+`…-CPL-jlcpcb.csv` für Oszillator und Filter. Bei diesen beiden Platinen
+**PCB Assembly** einschalten (Economic, Top Side) und die passenden zwei Dateien
+hochladen.
+
+> **In der Vorschau von JLCPCB die Ausrichtung prüfen:** Der Punkt für Pin 1 jedes
+> Chips muss auf der Markierung im Bestückungsdruck liegen. JLCPCB zählt die
+> Drehung bei manchen Gehäusen anders als KiCad; falls ein Chip verdreht angezeigt
+> wird, dort drehen, bevor bestellt wird.
+
+Die Hauptplatine hat keine SMD-Teile – dort **keine** Bestückung wählen.
+
 ## Vor dem Bestellen
 
 - [ ] Die Gerber in einem Viewer ansehen (z. B. der kostenlose Online-Viewer des

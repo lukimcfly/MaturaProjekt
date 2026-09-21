@@ -13994,7 +13994,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "47nF"
+		(property "Value" "56nF"
 			(at 50.8 175.26 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15817,7 +15817,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "110k"
+		(property "Value" "56k"
 			(at 105.41 204.47 270)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18256,7 +18256,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "6.8nF"
+		(property "Value" "15nF"
 			(at 95.25 85.09 270)
 			(show_name no)
 			(do_not_autoplace no)
