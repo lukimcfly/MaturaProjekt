@@ -153,10 +153,8 @@ panel = [
      'Achse der Potis vor dem Kauf abgleichen (6 mm oder 1/4")'),
     ('Taster', 'Schliesser, tastend', 'Einbau ca. 7 mm', 'Oszilloskop-Modus ZEIT/FIGUR/FREI', 1, 1, MUS, 'Taster Schliesser tastend', 1.50,
      'zwischen Arduino-Pin RESET und GND - wirkt wie der RESET-Knopf auf dem Arduino, der im Gehäuse sitzt'),
-    ('Klinkenbuchse', '6,3 mm mono, mit Schaltkontakt', 'Einbaubuchse', 'Lautsprecher-Ausgang', 1, 0, MUS, 'Klinkenbuchse 6,3mm mono schaltend', 2.50,
-     'Stecker rein = eingebauter Lautsprecher aus, externer an. Externer Lautsprecher: 8 Ω oder mehr'),
-    ('Lautsprecher', '8 Ω, ≥ 0,5 W', 'Ø 50-77 mm', 'an J904', 1, 0, DIS, 'Lautsprecher 8 Ohm 1W 66mm', 5.00,
-     'Der vorhandene 4-Ω-Lautsprecher überlastet den LM386 an 12 V eher - 8 Ω wie geplant'),
+    ('Lautsprecherklemme', 'Paar rot/schwarz', 'Polklemme für 4-mm-Bananenstecker und blanken Draht', 'Anschluss für den eigenen Lautsprecher (an J904)', 2, 0, DIS,
+     'Polklemme 4mm rot + schwarz', 1.50, 'Menge = Stück (1 rot + 1 schwarz). Kein eingebauter Lautsprecher mehr. Lautsprecher mit 8 Ω oder mehr'),
     ('Patchkabel', '3,5 mm mono', '30 cm', 'Filter C/D einschleifen', 4, 0, MUS, 'Patchkabel 3,5mm 30cm', 2.00, ''),
 ]
 for part, v, spec, refs, per, ex, sup, pn, pr, note in panel:

@@ -46,20 +46,27 @@ nach oben schiebt. Die Front braucht dafür je einen **Schlitz** statt eines Loc
 
 Der Master (`RV901`) bleibt ein Drehknopf.
 
-## 3. Anschluss für einen eigenen Lautsprecher
+## 3. Lautsprecher: nur noch ein eigener, über Polklemmen
 
-**Klinkenbuchse 6,3 mm mono mit Schaltkontakt.** Solange kein Stecker drin ist,
-spielt der eingebaute Lautsprecher; sobald einer steckt, ist er abgetrennt und
-nur der externe spielt.
+Es gibt **keinen eingebauten Lautsprecher** mehr. Stattdessen zwei
+**Lautsprecherklemmen** (Polklemmen, rot und schwarz) – sie nehmen blanken Draht
+und 4-mm-Bananenstecker.
 
 | Anschluss | geht an |
 |---|---|
-| Hauptplatine **J904 Pin 1** (Lautsprecher, schon gleichspannungsfrei hinter `C904`) | Buchse **Spitze** |
-| Buchse **Schaltkontakt** der Spitze | eingebauter Lautsprecher **+** |
-| Hauptplatine **J904 Pin 2** (Masse) | Buchse **Hülse** und eingebauter Lautsprecher **−** |
+| Hauptplatine **J904 Pin 1** (Lautsprecher, schon gleichspannungsfrei hinter `C904`) | Klemme **rot (+)** |
+| Hauptplatine **J904 Pin 2** (Masse) | Klemme **schwarz (−)** |
 
-Externer Lautsprecher: **8 Ω oder mehr**. Ein Send/Return ist dafür nicht nötig –
-der Lautsprecher ist das Ende der Kette.
+Ein Lautsprecher hat zwar zwei Anschlüsse, aber das ist kein „Ein und Aus" wie bei
+Send/Return: der Strom fliesst durch die Schwingspule hin und zurück, beide Adern
+gehören an dieselbe Stelle. Deshalb reicht **ein** Klemmenpaar.
+
+* Lautsprecher mit **8 Ω oder mehr**. Ein 4-Ω-Lautsprecher geht bei mässiger
+  Lautstärke, bringt den LM386 an 12 V bei voller Lautstärke aber an seine
+  Wärmegrenze.
+* Die beiden Klemmen **nie direkt verbinden** (Kurzschluss am Ausgang).
+* Ohne angeschlossenen Lautsprecher passiert nichts – das Zobel-Glied (`R901`,
+  `C905`) hält den LM386 auch ohne Last stabil.
 
 ## 4. Modus-Taster für das Oszilloskop
 

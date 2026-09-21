@@ -165,23 +165,25 @@ text(bx, by + 34, 'Modus-Taster', 12, 700)
 text(bx, by + 47, 'ZEIT → FIGUR → FREI · an Arduino RESET', 10, 400, REF)
 knob(x0 + 312, y0 + 104, 34, 'Master', 'RV901 · Lautstärke', pointer=0)
 # speaker grille
-gx, gy = x0 + 312, y0 + 268
-add('<circle cx="%d" cy="%d" r="46" fill="#d9d7ce" stroke="%s" stroke-width="1.5"/>' % (gx, gy, MUTED))
-for rr in (10, 20, 30, 40):
-    add('<circle cx="%d" cy="%d" r="%d" fill="none" stroke="#8a8880" stroke-width="1"/>' % (gx, gy, rr))
-text(gx, gy + 64, 'Lautsprecher 8 Ω', 12, 700)
-jack(gx + 18, y0 + 382, 'Ext. Lautsprecher', '6,3 mm, schaltet ab')
-new_badge(gx + 38, y0 + 358)
+gx, gy = x0 + 312, y0 + 262
+for dxp, col, sign in ((-24, '#E24B4A', '+'), (24, '#2C2C2A', '−')):
+    add('<circle cx="%d" cy="%d" r="16" fill="%s" stroke="#1c1c1b" stroke-width="1.5"/>' % (gx + dxp, gy, col))
+    add('<circle cx="%d" cy="%d" r="6" fill="#d9d7ce"/>' % (gx + dxp, gy))
+    text(gx + dxp, gy - 24, sign, 16, 700)
+text(gx, gy + 38, 'Lautsprecher', 13, 700)
+text(gx, gy + 52, 'eigener, 8 Ω oder mehr', 11, 400, MUTED)
+text(gx, gy + 65, 'Polklemmen an J904', 10, 400, REF)
+new_badge(gx + 26, gy - 50)
 # power
-toggle(x0 + 232, y0 + 340, 'Netz', 'ein', 'aus', 'Hauptschalter')
+toggle(x0 + 312, y0 + 380, 'Netz', 'ein', 'aus', 'Hauptschalter')
 
 # ---------------- rear + summary ----------------
 yb = 1006
 add('<rect x="20" y="%d" width="%d" height="78" rx="10" fill="#fafaf7" stroke="#d3d1c7"/>' % (yb, W - 40))
 text(36, yb + 24, 'Signalweg:', 12, 700, INK, 'start')
-text(118, yb + 24, 'Oszillator 1-3 → Mixer → Filter A → Filter B → Master → Lautsprecher.   Filter C, D: per Patchkabel zwischen Send und Return eines Oszillators (Solo-Filter ein).', 12, 400, INK, 'start')
+text(118, yb + 24, 'Oszillator 1-3 → Mixer → Filter A → Filter B → Master → eigener Lautsprecher.   Filter C, D: per Patchkabel zwischen Send und Return eines Oszillators (Solo-Filter ein).', 12, 400, INK, 'start')
 text(36, yb + 46, 'Pro Gerät:', 12, 700, INK, 'start')
-text(118, yb + 46, '21 Drehknöpfe (3 + 4 davon Tandem) · 3 Fader · 7 Drehschalter · 12 Kippschalter + Netzschalter · 1 Taster · 14 Buchsen · Display · Lautsprecher', 12, 400, INK, 'start')
+text(118, yb + 46, '21 Drehknöpfe (3 + 4 davon Tandem) · 3 Fader · 7 Drehschalter · 12 Kippschalter + Netzschalter · 1 Taster · 13 Buchsen · 2 Lautsprecherklemmen · Display', 12, 400, INK, 'start')
 text(36, yb + 68, 'Rückseite:', 12, 700, INK, 'start')
 text(118, yb + 68, 'DC-Buchse 12 V (Netzteil) · NEU = Ergänzung vom 21.09., Verdrahtung in Platinen/BEDIENFELD-ERGAENZUNGEN.md', 12, 400, INK, 'start')
 add('</svg>')
