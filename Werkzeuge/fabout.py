@@ -3,12 +3,20 @@
 The first pass exported every layer KiCad knows about, which meant fifteen empty
 files (Adhesive, Eco1/2, User_1..4, Margin) sitting in the fab package.  Empty
 layers are not harmful but they are an invitation for a board house to ask which
-one is the real silkscreen, so only the seven that carry anything are written.
+one is the real silkscreen, so only the seven that carry anything are written - plus the solder-paste layer on
+boards with SMD chips, which the assembly house needs for the stencil.
 """
-import sys, os, glob, zipfile, subprocess
+import sys, os, re, glob, zipfile, subprocess
 
 KICAD = r'C:\Program Files\KiCad\10.0\bin\kicad-cli.exe'
 LAYERS = 'F.Cu,B.Cu,F.Mask,B.Mask,F.Silkscreen,B.Silkscreen,Edge.Cuts'
+# JLCPCB cuts the solder-paste stencil for the machine-placed SMD chips from this layer.
+# Boards without SMD pads would get an empty file, so it is only added where needed.
+PASTE = 'F.Paste'
+
+
+def has_smd(pcb):
+    return re.search(r'\(pad "[^"]*" smd', open(pcb, encoding='utf-8').read()) is not None
 
 
 def _run(args):
@@ -23,7 +31,8 @@ def export(pcb, outdir):
         for f in glob.glob(os.path.join(outdir, '*')):
             os.remove(f)
     os.makedirs(outdir, exist_ok=True)
-    _run([KICAD, 'pcb', 'export', 'gerbers', '--layers', LAYERS,
+    layers = LAYERS + (',' + PASTE if has_smd(pcb) else '')
+    _run([KICAD, 'pcb', 'export', 'gerbers', '--layers', layers,
           '--no-protel-ext', '--subtract-soldermask', '-o', outdir, pcb])
     _run([KICAD, 'pcb', 'export', 'drill', '--format', 'excellon',
           '--drill-origin', 'absolute', '--excellon-units', 'mm',

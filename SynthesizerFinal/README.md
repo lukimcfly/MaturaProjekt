@@ -318,10 +318,13 @@ Die Versorgungs-Einheiten aller 16 ICs liegen gesammelt im Block
 ## 5  Was du noch prüfen solltest
 
 * **Frequenzpoti: linear oder logarithmisch?** Mit einem *linearen* 1-MΩ-Poti
-  liegt die höchste Oktave auf dem ersten **1 %** des Drehwegs, die tiefste auf
-  den letzten 37 % – hohe Töne sind kaum einzustellen. Ein **logarithmisches**
-  Poti (Kennlinie „A") verteilt die Oktaven gleichmässig über den Drehweg. Es ist
-  ein Bedienfeld-Teil und ändert nichts an den Platinen; beim Teilekauf entscheiden.
+  liegt die höchste Oktave auf dem letzten **1 %** des Drehwegs – hohe Töne sind
+  kaum einzustellen. **Entschieden am 22.09.2026: Kennlinie C (umgekehrt
+  logarithmisch).** Das Poti hängt zwischen Schleifer und CW-Ende; nur mit C nimmt
+  der Widerstand dort exponentiell ab, und die Oktaven verteilen sich gleichmässig
+  (halber Drehweg ≈ 440 Hz). Ein A-Poti wäre bei dieser Verdrahtung noch schlechter
+  als ein lineares. Begründung und Tabelle: `Platinen/BEDIENFELD-ERGAENZUNGEN.md`,
+  Abschnitt 7. Gilt genauso für die Cutoff-Potis der Filter.
 
 * **Spulen 33 mH / 68 mH** sind bei den Filtern die teuersten und
   toleranzbehaftetsten Teile (oft ±10 %). Die angegebenen Eckfrequenzen

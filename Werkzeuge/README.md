@@ -30,7 +30,8 @@ Ausgeführt werden sie mit dem Python, das bei KiCad dabei ist:
 | `reorderconn.py` | Vertauscht die Netze auf den Stiften eines Steckers — damit die Leitungen den Stecker in derselben Reihenfolge verlassen wie die Bauteile stehen, die sie versorgen |
 | `crtyd.py` | Prüft die Platzierung gegen die echten Courtyards der Footprints, **bevor** gebaut wird |
 | `checkpcb.py` | Der Prüfbericht: DRC, Massefläche, Platinengrösse, Bestückungsdruck, Verknüpfung Footprint↔Symbol |
-| `fabout.py` | Gerber, Bohrdateien und ZIP für den Platinenhersteller |
+| `fabout.py` | Gerber, Bohrdateien und ZIP für den Platinenhersteller – mit Lotpasten-Lage, sobald eine Platine SMD-Pads hat (für die Bestückungs-Schablone) |
+| `shoplist_data.py`, `shoplist_build.ps1` | Die Einkaufsliste: Mengen aus der Stückliste, Shop-Artikelnummern und Warenkorb-Preise; baut `Einkauf/Einkaufsliste_Synthesizer.xlsx` über Excel und prüft, dass jede Position genau zur Menge im Warenkorb passt |
 | `fanout.py` | Führt die Leitungen feiner SMD-Pins zuerst nach aussen — zwischen zwei SOIC-Pads passt keine Leiterbahn (0,67 mm Lücke, 0,80 mm nötig) |
 | `rescue.py` | Wenn ein Netz nicht durchkommt: nur die **Nachbarn** aufreissen, das gescheiterte Netz zuerst legen, dann die Nachbarn drumherum — statt alle 45 Netze neu zu würfeln |
 | `finish_osc.py` | Arbeitet an der **bestehenden** Platine weiter, statt sie neu zu bauen. `--relaxed` hebt die selbst gesetzten Sperrflächen auf — damit wurden die letzten zwei Netze der Oszillator-Platine geschlossen |

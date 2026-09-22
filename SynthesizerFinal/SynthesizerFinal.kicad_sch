@@ -27526,7 +27526,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "OPA4196"
+		(property "Value" "TL074CDR"
 			(at 350.52 457.2 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -32308,7 +32308,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "OPA4196"
+		(property "Value" "TL074CDR"
 			(at 350.52 293.37 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -32506,7 +32506,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "OPA4196"
+		(property "Value" "TL074CDR"
 			(at 763.27 709.93 0)
 			(hide yes)
 			(show_name no)
@@ -33745,7 +33745,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "OPA4196"
+		(property "Value" "TL074CDR"
 			(at 64.77 173.99 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -36370,7 +36370,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "OPA4196"
+		(property "Value" "TL074CDR"
 			(at 671.83 758.19 0)
 			(hide yes)
 			(show_name no)
@@ -38539,7 +38539,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "OPA4196"
+		(property "Value" "TL074CDR"
 			(at 350.52 92.71 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -39779,7 +39779,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "OPA4196"
+		(property "Value" "TL074CDR"
 			(at 106.68 382.27 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -40058,7 +40058,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "OPA4196"
+		(property "Value" "TL074CDR"
 			(at 64.77 574.04 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -43973,7 +43973,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "OPA4196"
+		(property "Value" "TL074CDR"
 			(at 92.71 657.86 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -44654,7 +44654,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "OPA4196"
+		(property "Value" "TL074CDR"
 			(at 181.61 657.86 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -45092,7 +45092,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "OPA4196"
+		(property "Value" "TL074CDR"
 			(at 92.71 715.01 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -45530,7 +45530,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "OPA4196"
+		(property "Value" "TL074CDR"
 			(at 181.61 715.01 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -46064,7 +46064,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "OPA4196"
+		(property "Value" "TL074CDR"
 			(at 327.66 657.86 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -46745,7 +46745,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "OPA4196"
+		(property "Value" "TL074CDR"
 			(at 416.56 657.86 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -47183,7 +47183,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "OPA4196"
+		(property "Value" "TL074CDR"
 			(at 327.66 715.01 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -47621,7 +47621,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "OPA4196"
+		(property "Value" "TL074CDR"
 			(at 416.56 715.01 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -48155,7 +48155,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "OPA4196"
+		(property "Value" "TL074CDR"
 			(at 81.28 777.24 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -48836,7 +48836,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "OPA4196"
+		(property "Value" "TL074CDR"
 			(at 170.18 777.24 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -49274,7 +49274,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "OPA4196"
+		(property "Value" "TL074CDR"
 			(at 81.28 834.39 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -49712,7 +49712,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "OPA4196"
+		(property "Value" "TL074CDR"
 			(at 170.18 834.39 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -50564,7 +50564,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "OPA4196"
+		(property "Value" "TL074CDR"
 			(at 317.5 777.24 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -51245,7 +51245,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "OPA4196"
+		(property "Value" "TL074CDR"
 			(at 406.4 777.24 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -51683,7 +51683,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "OPA4196"
+		(property "Value" "TL074CDR"
 			(at 317.5 834.39 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -52121,7 +52121,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "OPA4196"
+		(property "Value" "TL074CDR"
 			(at 406.4 834.39 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -52973,7 +52973,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "OPA4196"
+		(property "Value" "TL074CDR"
 			(at 702.31 661.67 0)
 			(hide yes)
 			(show_name no)
@@ -60116,7 +60116,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "OPA4196"
+		(property "Value" "TL074CDR"
 			(at 350.52 492.76 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -64409,7 +64409,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "OPA4196"
+		(property "Value" "TL074CDR"
 			(at 350.52 57.15 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -64526,7 +64526,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "OPA4196"
+		(property "Value" "TL074CDR"
 			(at 641.35 709.93 0)
 			(hide yes)
 			(show_name no)
@@ -64755,7 +64755,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "OPA4196"
+		(property "Value" "TL074CDR"
 			(at 641.35 758.19 0)
 			(hide yes)
 			(show_name no)
@@ -76116,7 +76116,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "OPA4196"
+		(property "Value" "TL074CDR"
 			(at 702.31 758.19 0)
 			(hide yes)
 			(show_name no)
@@ -77055,7 +77055,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "OPA4196"
+		(property "Value" "TL074CDR"
 			(at 64.77 374.65 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -77527,7 +77527,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "OPA4196"
+		(property "Value" "TL074CDR"
 			(at 106.68 181.61 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -77724,7 +77724,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "OPA4196"
+		(property "Value" "TL074CDR"
 			(at 350.52 257.81 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -78245,7 +78245,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "OPA4196"
+		(property "Value" "TL074CDR"
 			(at 732.79 758.19 0)
 			(hide yes)
 			(show_name no)
@@ -79969,7 +79969,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "OPA4196"
+		(property "Value" "TL074CDR"
 			(at 106.68 581.66 0)
 			(show_name no)
 			(do_not_autoplace no)

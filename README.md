@@ -7,22 +7,22 @@ die schriftlichen Abgabedokumente.
 **Abgabetermin: 10. November 2026**
 **Zwischenziel: physisches Produkt fertig bis zu den Herbstferien**
 
-## Stand (16.09.2026)
+## Stand (22.09.2026)
 
-**Schaltplan fertig, alle drei Platinen fertig geroutet — bestellbar.**
+**Alles bestellbereit.** Schaltplan, drei Platinen und Einkauf sind fertig; die
+Warenkörbe bei Tayda, LCSC und Conrad sind gefüllt, JLCPCB braucht noch den Login.
 
 | | |
 |---|---|
 | Gesamtschaltplan | ERC-sauber: 0 Fehler, 0 Warnungen |
-| Oszillator-Platine (**3×**) | DRC-sauber, 0 offene Netze |
-| Filter-Platine (**4×**) | DRC-sauber, 0 offene Netze |
+| Oszillator-Platine (**3×** pro Gerät) | DRC-sauber, 0 offene Netze |
+| Filter-Platine (**4×** pro Gerät) | DRC-sauber, 0 offene Netze |
 | Hauptplatine (1×) | DRC-sauber, 0 offene Netze |
-| Fertigungsdaten | vollständig in [`Platinen/Fertigung/`](Platinen/Fertigung/) |
+| Fertigungsdaten | vollständig in [`Platinen/Fertigung/`](Platinen/Fertigung/), inkl. Bestückung der SMD-Chips |
+| Einkauf für 2 Geräte | **rund CHF 378** inkl. Platinen, Versand und MWST – [`Einkauf/BESTELLEN.md`](Einkauf/BESTELLEN.md) |
 
-Nächster Schritt: Gerber in einem Viewer durchsehen, dann Platinen und Bauteile
-bestellen. Details und der eine noch offene Punkt (Grösse der Oszillator-Platine)
-stehen in [`Platinen/README.md`](Platinen/README.md) und im
-[Tagebuch vom 16.09.](diary/2026-09-16.md).
+Nächster Schritt: bestellen, möglichst bis 24.09. (danach chinesische Feiertage).
+Was sich am 22.09. geändert hat, steht im [Tagebuch vom 22.09.](diary/2026-09-22.md).
 
 ## Ordnerstruktur
 
@@ -36,6 +36,7 @@ stehen in [`Platinen/README.md`](Platinen/README.md) und im
 | [`Unsere-Materialien/`](Unsere-Materialien/README.md) | Logbuch und schriftlicher Kommentar zur Abgabe |
 | [`SynthesizerFinal/`](SynthesizerFinal/README.md) | Gesamtschaltplan des Synthesizers (KiCad) |
 | [`Platinen/`](Platinen/README.md) | Die drei Leiterplatten: Layout, Gerber, Stücklisten, Verdrahtung |
+| [`Einkauf/`](Einkauf/BESTELLEN.md) | Einkaufsliste (Excel), Bestellanleitung, Sicherungskopien der Warenkörbe |
 | [`Werkzeuge/`](Werkzeuge/README.md) | Die Skripte, mit denen Schaltplan und Platinen erzeugt wurden |
 | `KicadCircuit/` | Ursprüngliche Einzelschaltpläne (Vorstufe, nur noch als Vergleich) |
 

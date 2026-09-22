@@ -143,7 +143,9 @@ Masseflächen auf den Quadratmillimeter gleich wie vorher. Der Stand davor liegt
 Archiv (`archiv/<platine>/rev4-pre-jlc/`).
 
 **Einstellungen beim Bestellen** (alles andere auf Standard lassen): Layers 2 ·
-PCB Thickness 1,6 mm · Quantity 5 · Surface Finish HASL (bleifrei, falls wählbar).
+PCB Thickness 1,6 mm · Surface Finish **HASL (with lead)** – das bleifreie HASL kostet
+1,60 USD pro Platinensorte mehr und bringt beim Handlöten nichts · Stückzahl siehe
+unten. Die Schritt-für-Schritt-Anleitung steht in [`../Einkauf/BESTELLEN.md`](../Einkauf/BESTELLEN.md).
 
 ## Bestückung: gemischt (JLCPCB + von Hand)
 
@@ -155,14 +157,43 @@ lässt sich leicht tauschen, und die Potis sitzen ohnehin im Bedienfeld.
 | Bauteil | Typ | Gehäuse | LCSC-Nr. |
 |---|---|---|---|
 | U102 | SN74LVC2G17DBVR | SOT-23-6 | C10429 |
-| U103 | OPA4196IDR | SOIC-14 | C2057385 |
+| U103 | **TL074CDR** | SOIC-14 | **C12594** |
 | U104 | OPA1662AIDR | SOIC-8 | C882794 |
-| U401 (Filter) | OPA4196IDR | SOIC-14 | C2057385 |
+| U401 (Filter) | **TL074CDR** | SOIC-14 | **C12594** |
+
+**Geändert am 22.09.2026: TL074CDR statt OPA4196.** Beide sind Vierfach-Op-Amps mit
+derselben Anschlussbelegung im selben Gehäuse; am Layout ändert sich nichts. Der
+OPA4196 kostet 3,62 USD, der TL074CDR 0,29 USD – und weil JLCPCB bei 10 Platinen
+alle 10 bestücken muss, wären es 20 Stück gewesen. Geprüft:
+
+* Netzliste vorher/nachher: **genau 7 Wertänderungen** (U103, U203, U303, U401–U701),
+  keine Netz- und keine Footprint-Änderung; ERC und DRC fehlerfrei.
+* Filter (U401): Simulation mit beiden Op-Amp-Modellen über den ganzen Cutoff- und
+  Resonanzbereich – Unterschied **unter 0,1 dB**. Der TL074 ist hier sogar schneller
+  (3 MHz / 13 V/µs gegenüber 2,5 MHz / 5,5 V/µs).
+* Oszillator (U103): Puffer der Sägezahn-Kapazität (Eingang 0…3,4 V, Eingangsstrom
+  des TL074 30 pA gegen ≥ 1,6 µA Ladestrom – vernachlässigbar), Drive-,
+  Make-up- und Sägezahn-Ausgangsstufe mit Signalen weit unter ±10 V. Die
+  Tonhöhe hängt nicht vom Op-Amp ab, sondern von den Schmitt-Trigger-Schwellen.
+* Der Wert steht nur auf der Fab-Lage, nicht im Bestückungsdruck – die Gerber-Dateien
+  sind dadurch nicht verändert.
+
+**Neu im Gerber-Paket:** die **Lotpasten-Lage** (`F_Paste`) bei Oszillator und
+Filter. Ohne sie kann JLCPCB keine Schablone für die SMD-Chips schneiden; die
+Hauptplatine hat keine SMD-Teile und braucht keine. Die übrigen Lagen sind
+byte-gleich bis auf den Zeitstempel.
 
 Dateien für die Bestellung in `Fertigung/`: je eine `…-BOM-jlcpcb.csv` und
 `…-CPL-jlcpcb.csv` für Oszillator und Filter. Bei diesen beiden Platinen
 **PCB Assembly** einschalten (Economic, Top Side) und die passenden zwei Dateien
 hochladen.
+
+**Stückzahl:** JLCPCB lässt bei 10 Platinen nur „alle 10 bestücken" zu (eine
+Teilbestückung gibt es nur bei 5 Stück: 2 von 5). Für 2 Geräte also: Oszillator
+**10 Stück, alle bestückt** (6 gebraucht), Filter **10 Stück, alle bestückt**
+(8 gebraucht), Hauptplatine **5 Stück, ohne Bestückung** (2 gebraucht). Die
+überzähligen bestückten Platinen sind Reserve – die Mehrkosten sind mit dem TL074
+nur noch rund 6 USD.
 
 > **In der Vorschau von JLCPCB die Ausrichtung prüfen:** Der Punkt für Pin 1 jedes
 > Chips muss auf der Markierung im Bestückungsdruck liegen. JLCPCB zählt die
@@ -175,7 +206,7 @@ Die Hauptplatine hat keine SMD-Teile – dort **keine** Bestückung wählen.
 
 - [ ] Die Gerber in einem Viewer ansehen (z. B. der kostenlose Online-Viewer des
       Herstellers) — nicht blind hochladen.
-- [ ] Bei der Oszillator- und der Filter-Platine die **Stückzahl** nicht
-      vergessen: 3× bzw. 4×.
-- [ ] Prüfen, ob der Hersteller die Platinengrösse in der günstigen Stufe
-      abrechnet.
+- [ ] Stückzahl für 2 Geräte: Oszillator 10, Filter 10, Hauptplatine 5 (siehe oben).
+- [ ] Die Oszillator-Platine (108 mm) fällt aus der 100-mm-Preisstufe: 15,30 statt
+      5,00 USD für 10 Stück. Sie zu verkleinern hiesse, die dichteste Platine neu zu
+      routen – für rund 10 USD bewusst nicht gemacht.

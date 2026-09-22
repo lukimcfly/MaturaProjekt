@@ -121,7 +121,7 @@ Die dritte und dichteste Platine, jetzt vollständig geroutet.
 
 | Datei | Inhalt |
 |---|---|
-| `2026-09-16_platine-oszillator-oben.png` | Bestückungsseite. Oben die Versorgung mit den beiden Elkos, links `U103` (OPA4196) mit den sechs Dioden der Wellenformung, rechts `U101` (TL074) in der Fassung, unten die beiden grossen Panel-Stecker `POTIS` und `SCHALTER` |
+| `2026-09-16_platine-oszillator-oben.png` | Bestückungsseite. Oben die Versorgung mit den beiden Elkos, links `U103` (Vierfach-Op-Amp im SOIC-14, heute TL074CDR) mit den sechs Dioden der Wellenformung, rechts `U101` (TL074) in der Fassung, unten die beiden grossen Panel-Stecker `POTIS` und `SCHALTER` |
 | `2026-09-16_platine-oszillator-unten.png` | Rückseite. Hier ist mehr Kupfer zu sehen als bei den anderen beiden Platinen — die Platine ist dichter, der Router muss öfter auf die Rückseite ausweichen |
 
 Auffällig auf der Unterseite ist **ein längerer Zug quer über die Platine**: das

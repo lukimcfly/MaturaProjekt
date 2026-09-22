@@ -277,7 +277,7 @@ haengen. Beim Einkauf also 3 + 4 = 7 Doppelpotis.
 | Widerstaende **Filter- und Hauptplatine** | liegend, Rastermass 7,62 mm |
 | BC547 und 78L05 | Beine auf 2,54 mm spreizen (TO-92 Inline Wide). Bei 1,27 mm waere der Abstand der Loetaugen kleiner als die Entwurfsregel erlaubt. |
 | TL074 und LM386 | Fassung vorgesehen - ICs also nicht direkt einloeten, sondern stecken |
-| OPA4196 / OPA1662 / 74LVC2G17 | SMD. OPA4196 im SOIC-14 (1,27 mm Raster) statt TSSOP - deutlich leichter von Hand zu loeten. |
+| TL074CDR / OPA1662 / 74LVC2G17 | SMD, werden von JLCPCB bestueckt. Der Vierfach-Op-Amp ist ein TL074 im SOIC-14 (1,27 mm Raster) - gleiche Anschlussbelegung wie der fruehere OPA4196, aber ein Zwoelftel des Preises. |
 | Masse-Pins an Versorgungssteckern und Abblockkondensatoren | direkt mit der Massflaeche verbunden (kein Thermal). Dafuer den Loetkolben etwas heisser stellen und laenger halten. |
 | Sicherungen F901/F902 | 5 x 20 mm Halteclips, je zwei Loetfahnen pro Clip - beide loeten |
 | Polung | Elkos und Dioden sind auf dem Bestueckungsdruck markiert; C904 und C805 sind die grossen liegenden Elkos |

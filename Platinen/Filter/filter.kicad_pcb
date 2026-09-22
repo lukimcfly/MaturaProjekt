@@ -6663,7 +6663,7 @@
 				)
 			)
 		)
-		(property "Value" "OPA4196"
+		(property "Value" "TL074CDR"
 			(at 0 5.28 0)
 			(layer "F.Fab")
 			(uuid "5ffbdc12-ef54-45b1-9445-c94f2fb0ad71")
