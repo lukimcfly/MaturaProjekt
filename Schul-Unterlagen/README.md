@@ -11,4 +11,13 @@ Zum Beispiel:
 
 **Abgabetermin Matura: 10. November 2026**
 
-_Noch keine Dateien abgelegt._
+## Abgelegte Dateien
+
+| Datei | Inhalt |
+|---|---|
+| `Checkliste_wissenschaftliche_Maturaarbeiten.pdf` | Checkliste für Aufbau und Form der Arbeit |
+| `Merkblatt_Schriftlicher_Kommentar.pdf` | Vorgaben zum schriftlichen Kommentar |
+| `Zitierregeln_2025.pdf` | Zitierregeln |
+| `Literaturangaben_2024.pdf` | Format der Literaturangaben |
+| `Merkblatt_Nachweis_KI.pdf` | Wie die KI-Nutzung nachgewiesen werden muss |
+| `Verwendung_von_KI.docx` | Vorlage/Regeln zur Verwendung von KI |
