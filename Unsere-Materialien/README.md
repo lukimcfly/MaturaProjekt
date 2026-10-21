@@ -6,6 +6,7 @@ Alles, was wir selbst für die Abgabe erstellen.
 
 | Ordner | Inhalt |
 |---|---|
+| `Vertrag/` | Der Maturaarbeits-Vertrag (Projektbeschreibung, Fragestellung, Bewertungskriterien) |
 | `Logbuch/` | Das offizielle Logbuch zur Abgabe |
 | `Schriftlicher-Kommentar/` | Der schriftliche Kommentar / die Projektarbeit |
 
@@ -15,4 +16,3 @@ Alles, was wir selbst für die Abgabe erstellen.
 - `plan/` — Zeitpläne
 - `quellen/` — Lernmaterial, wird später zum Quellenverzeichnis
 
-_Noch keine Dateien abgelegt._

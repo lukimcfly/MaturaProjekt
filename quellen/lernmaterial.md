@@ -40,6 +40,19 @@ heraus, die für die einzelnen Baugruppen des Synthesizers gebraucht werden.
 | Transistors Explained — How transistors work | The Engineering Mindset | Aufbau und Funktionsprinzip von BJT/MOSFET | https://youtu.be/J4oO7PT_nzQ |
 | Transistor Amplifiers — Class A, AB, B, & C Circuits | The Organic Chemistry Tutor | Verstärkerklassen, Arbeitspunkt, Verzerrung | https://www.youtube.com/watch?v=0e_OUyGCaBs |
 
+### Aus der alten Quellensammlung (`Quellen (alte Sammlung).docx`)
+
+| Titel | Art | Link |
+|---|---|---|
+| BC337 Datenblatt (onsemi) | Datenblatt | https://www.onsemi.cn/download/data-sheet/pdf/bc337-fsc-d.pdf |
+| BC184C Datenblatt | Datenblatt | https://www.mouser.com/datasheet/2/149/BC184C-888447.pdf |
+| YouTube-Video (Titel noch nachtragen) | Video | https://www.youtube.com/watch?v=JGXdi7XcQi8 |
+| YouTube-Video (Titel noch nachtragen) | Video | https://www.youtube.com/watch?v=4Ql8hRhsYB8 |
+| All About Circuits — Textbook | Online-Lehrbuch | https://www.allaboutcircuits.com/textbook/ |
+| Kuphaldt: Lessons in Electric Circuits | Online-Lehrbuch | https://www.ibiblio.org/kuphaldt/electricCircuits/ |
+
+Das dritte Video der alten Sammlung (`0e_OUyGCaBs`, Transistor Amplifiers) steht oben schon.
+
 ---
 
 ## Werkzeuge

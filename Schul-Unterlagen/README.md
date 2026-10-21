@@ -21,3 +21,4 @@ Zum Beispiel:
 | `Literaturangaben_2024.pdf` | Format der Literaturangaben |
 | `Merkblatt_Nachweis_KI.pdf` | Wie die KI-Nutzung nachgewiesen werden muss |
 | `Verwendung_von_KI.docx` | Vorlage/Regeln zur Verwendung von KI |
+| `Zwischenbericht_Rueckmeldung_Juni_2026.pdf` | Rückmeldung der Betreuungsperson zur Zwischenpräsentation (Teilnoten, ToDos) |

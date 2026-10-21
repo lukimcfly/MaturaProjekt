@@ -3,7 +3,17 @@
 **Aktuelle Datei: `Logbuch neu.docx`** — ab jetzt wird direkt hier weitergeschrieben,
 nicht mehr in getrennten Tagesdateien.
 
-## Aufbau
+## Zwei Teile
+
+| Datei | Zeitraum |
+|---|---|
+| `Logbuch alt (Maerz-Juni 2026).docx` | 11.03.2026 – 03.06.2026: Vertrag, Tiefpass, LED-Blinker, erste Square-Wave (Fliesstext, ohne Tabelle) |
+| `Logbuch neu.docx` | ab 12.08.2026, Tabellenform |
+
+Lücken: 03.06. – 12.08.2026 und seit 19.08.2026 (Stand 21.10.2026). Für die Abgabe
+sollten beide Teile in **ein** Dokument zusammengeführt werden.
+
+## Aufbau (neues Logbuch)
 
 Eine Tabelle mit vier Spalten, eine Zeile pro Arbeitstag:
 
