@@ -48,6 +48,13 @@ direkt dem passenden Tagebucheintrag zuordnen.
 | `Schaltplaene/2026-09-16_platine-oszillator-unten.png` | 16.09.2026 | Oszillator-Platine, Rückseite mit der Massefläche |
 | `Schaltplaene/2026-09-21_bedienfeld-uebersicht.png` | 21.09.2026 | Bedienfeld: alle 24 Drehknöpfe, 7 Drehschalter, 13 Kippschalter, 3 Fader, Modus-Taster, 13 Buchsen, Display und Lautsprecherklemmen eines Geräts, mit Referenzen aus VERDRAHTUNG.md |
 | *(fehlt noch)* `Schaltplaene/2026-08-12_oszillator-schmitt-trigger.png` | 12.08.2026 | erste Revision des Oszillators (RHigh 20 kΩ, RLow/RB 270 Ω) |
+| `Schaltplaene/distortion-schalter-alt-SW2.png` | – | Distortion: ursprünglicher einfacher Umschalter weich/hart (SW2) |
+| `Schaltplaene/distortion-schalter-neu-SW4-DPDT.png` | – | Distortion: neuer zweipoliger Umschalter (SW4, DPDT) |
+| `Aufbau/saegezahn-breadboard.jpg` | nach den Herbstferien | Sägezahn-Oszillator auf dem Breadboard |
+| `Aufbau/arduino-oszilloskop-display.jpg` | nach den Herbstferien | 2,2"-Display (ILI9341) des Arduino-Oszilloskops, Rückseite |
+| `Aufbau/arduino-und-breadboard.jpg` | nach den Herbstferien | Arduino Uno, Display und Sägezahn-Oszillator auf dem Breadboard |
+| `Aufbau/arduino-oszilloskop-saegezahn-2185hz.jpg` | nach den Herbstferien | Display zeigt den Sägezahn mit 2185 Hz |
+| `WhatsApp/IMG-JJJJMMTT-WA….jpg` | im Dateinamen | Fotos aus dem Gruppenchat (Skizzen, Schaltpläne, Simulationen, Messungen). Bekannt: 20260610-WA0011 Oszilloskop LED-Blinker, 20260610-WA0005 Schaltplan Blinker, 20260818-WA0001 Sägezahn v1, 20260819-WA0002 Sägezahn v2, 20260819-WA0001 Produktskizze, 20260820-WA0003 Funktionsgenerator, 20260824-WA0003 / 20260826-WA0000 Distortion, 20260826-WA0009 Falstad-Mixer, 20260909-WA0003 Filter v1 |
 
 ---
 
