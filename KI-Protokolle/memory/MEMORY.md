@@ -1,0 +1,3 @@
+- [Matura-Projekttagebuch](matura-diary-workflow.md) — Wie und wo ich Tagebucheinträge für das Maturaprojekt schreibe (Deutsch, eine Datei pro Tag).
+- [Inhalt des Maturaprojekts](matura-projekt-inhalt.md) — Synth + Fourier-Vergleich, Vertrag/Kriterien, Zwischenfeedback, Abgabe 10.11.2026, keine Namen im Tagebuch.
+- [Synthesizer-Gesamtschaltplan](synth-gesamtschaltplan.md) — Aufbau, Rails und offene Punkte des zusammengeführten Schaltplans in SynthesizerFinal/.
