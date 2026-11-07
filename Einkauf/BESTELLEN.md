@@ -1,35 +1,33 @@
-# Bestellen – Schritt für Schritt (Stand 22.09.2026)
+# Bestellen – Schritt für Schritt (Stand 11.10.2026)
 
-Alles für **2 Geräte**, inklusive Reserve, Versand und MWST: **rund CHF 378**
-(CHF 189 pro Gerät). Die alte Liste lag bei CHF 850 – und da waren die Platinen,
-der Versand und der Zoll noch nicht einmal dabei.
+Alles für **1 Gerät**, inklusive Reserve, Versand und MWST: **CHF 247**.
 
-| # | Shop | Was | Warenkorb | Versand | Total ca. |
+Lieferadresse: **5210 Windisch**. Ziel: alles da bis **~18.10.2026**.
+
+| # | Shop | Was | Warenkorb | Versand | Total |
 |---|---|---|---|---|---|
-| 1 | **JLCPCB** (China) | 3 Platinensorten, SMD-Chips bestückt | **Login nötig** – siehe unten | DHL DDP ~35 USD | ~108 USD ≈ CHF 91 |
-| 2 | **LCSC** (China) | JST-Stecker (original), DC/DC-Wandler, LM386, Sicherungen, SMD-Reserve | **fertig** im Browser | 17.52 USD | 64.01 USD ≈ CHF 54 |
-| 3 | **Tayda** (Thailand) | alle übrigen Bauteile, Potis, Schalter, Buchsen, Knöpfe, Arduino, Display, Bolzen, Crimpzange | **fertig** im Browser | DHL Express **DDP** 21.23 USD | 222.55 USD ≈ CHF 188 |
-| 4 | **Conrad** (CH) | 2 × Netzteil Mean Well, Litze 100 m | **fertig** im Browser | CHF 9.95 | CHF 45.60 |
+| 1 | **JLCPCB** (CN) | 3 Platinensorten, **unbestückt** | Login nötig – siehe unten | DHL Express DDP ~28 USD | ~43 USD ≈ CHF 36 |
+| 2 | **LCSC** (CN) | JST-Stecker, **die 13 SMD-Chips**, DC/DC, LM386, Sicherungen | `warenkorb-lcsc.csv` | **DHL Express** ~30 USD | 73.84 USD ≈ CHF 62 |
+| 3 | **Tayda** (TH) | alles Übrige: Potis, Schalter, Buchsen, Knöpfe, Passive, Bolzen, Crimpzange | `warenkorb-tayda.csv` | DHL Express **DDP** 21.23 USD | 134.94 USD ≈ CHF 113 |
+| 4 | **Conrad** (CH) | Netzteil, Litze | `warenkorb-conrad.csv` | CHF 9.95 | CHF 35.75 |
 
-Genaue Liste mit jeder Position: `Einkaufsliste_Synthesizer.xlsx`. Falls ein
-Warenkorb verloren geht: `warenkorb-tayda.csv`, `warenkorb-lcsc.csv` und
-`warenkorb-conrad.csv` enthalten genau den Inhalt (Import siehe unten).
+Jede Position mit Preis: `Einkaufsliste_Synthesizer.xlsx`.
+Hintergrund zur Lieferantenwahl: `EINKAUF-REV-11-10-2026.md`.
 
-> **Zeitplan:** In China sind vom **25.09. bis 07.10.** Feiertage. JLCPCB schliesst
-> die Fabrik am 25.09., 27.09. und 1.–4.10.; LCSC arbeitet eingeschränkt.
-> **JLCPCB und LCSC möglichst bis 24.09. bestellen**, sonst kommen die Platinen
-> erst Mitte Oktober.
+> **Reihenfolge:** zuerst JLCPCB (längste Laufzeit), dann LCSC, dann Tayda, dann
+> Conrad. Die chinesischen Feiertage (25.09.–07.10.) sind vorbei, aber JLCPCB warnt
+> vor Rückstau direkt danach.
+
+> **Der wichtigste Klick:** bei **LCSC nicht** die „Global Direct Standard Line"
+> nehmen. Die braucht 7–15 Werktage und kommt zu spät. **DHL Express** wählen,
+> auch wenn das ~13 USD mehr kostet.
 
 ---
 
-## 1. JLCPCB – Platinen (braucht ein Konto)
+## 1. JLCPCB – Platinen, unbestückt
 
-Die Bestückung lässt sich erst nach dem Login hochladen, deshalb liegt hier kein
-fertiger Warenkorb. **Am einfachsten:** im Browser-Fenster von Claude bei JLCPCB
-einloggen und Claude Bescheid geben – dann lädt Claude alle Dateien hoch und
-stellt alles ein (ca. 10 Minuten). Oder selbst so:
-
-Für **jede** der drei Platinen auf https://cart.jlcpcb.com/quote :
+Kein BOM, kein CPL, keine Bestückungs-Vorschau, keine Pin-1-Prüfung. Nur Gerber
+hochladen. Für **jede** der drei Platinen auf https://cart.jlcpcb.com/quote :
 
 1. **Add gerber file** → Datei aus `Platinen/Fertigung/`:
    `oszillator-gerber.zip`, `filter-gerber.zip`, `hauptplatine-gerber.zip`.
@@ -38,97 +36,90 @@ Für **jede** der drei Platinen auf https://cart.jlcpcb.com/quote :
    | | Oszillator | Filter | Hauptplatine |
    |---|---|---|---|
    | Layers | 2 | 2 | 2 |
-   | PCB Qty | **10** | **10** | **5** |
-   | PCB Thickness | 1.6 mm | 1.6 mm | 1.6 mm |
+   | PCB Qty | **5** | **5** | **5** |
+   | PCB Thickness | 1,6 mm | 1,6 mm | 1,6 mm |
    | Surface Finish | HASL (with lead) | HASL (with lead) | HASL (with lead) |
-   | PCB Assembly | **an** | **an** | aus |
+   | PCB Assembly | **aus** | **aus** | **aus** |
 
-3. Bei Oszillator und Filter unter **PCB Assembly**: PCBA Type **Economic**,
-   Assembly Side **Top Side**, PCBA Qty **10** (bei 10 Platinen gibt es nur
-   „alle"). **NEXT**.
-4. BOM und CPL hochladen: `oszillator-BOM-jlcpcb.csv` + `oszillator-CPL-jlcpcb.csv`
-   bzw. `filter-BOM-jlcpcb.csv` + `filter-CPL-jlcpcb.csv`.
-5. Teile-Liste prüfen: es müssen genau diese sein – sonst nichts ankreuzen:
+3. **Save to Cart**.
+4. Kasse: Versand **DHL Express (DDP)** – MWST und Gebühren sind damit bezahlt.
 
-   | Platine | Bauteil | LCSC-Nr. |
-   |---|---|---|
-   | Oszillator | U102 SN74LVC2G17DBVR | C10429 |
-   | Oszillator | U103 TL074CDR | C12594 |
-   | Oszillator | U104 OPA1662AIDR | C882794 |
-   | Filter | U401 TL074CDR | C12594 |
+Gebraucht werden 3 Oszillator-, 4 Filter- und 1 Hauptplatine. 5 ist die
+Mindestmenge, der Rest ist Reserve.
 
-6. **Bestückungs-Vorschau – wichtig:** Bei jedem Chip muss der **Punkt für Pin 1**
-   auf der Pin-1-Markierung im Bestückungsdruck liegen. Liegt ein Chip verdreht,
-   dort mit dem Drehen-Knopf korrigieren (meist 90° oder 180°). Ein verdrehter Chip
-   geht beim ersten Einschalten kaputt.
-7. Die Geschäftsbedingungen der Bestückung bestätigen, **Save to Cart**.
-8. Hauptplatine: nur Gerber hochladen, Qty 5, **Save to Cart**.
-9. Kasse: Versand **DHL Express (DDP)** – da sind MWST und Gebühren schon dabei.
-
-Kosten (Schätzung, der echte Preis steht nach dem Hochladen im Warenkorb):
-Platinen 24.30 USD, Bestückung ~48.50 USD, Versand ~35 USD.
-
-## 2. LCSC – Stecker und Sonderteile
-
-Warenkorb ist fertig (24 Positionen, 46.67 USD Ware). Kasse:
-
-* Mit Konto oder als Gast (LCSC legt beim Bezahlen mit PayPal automatisch ein Konto an).
-* Versand **Global Direct Standard Line** (17.52 USD, 7–15 Werktage). Warenwert
-  inkl. Versand liegt unter CHF 62 → keine Schweizer MWST, keine Zollgebühr.
-* Falls der Warenkorb leer ist: https://www.lcsc.com/bom → `warenkorb-lcsc.csv`
-  hochladen, oder im Warenkorb unten „LCSC#/MPN" Zeile für Zeile.
-* Wer Versand sparen will, kann die LCSC-Bestellung mit JLCPCB zusammen schicken
-  lassen („Combine with JLCPCB order") – geht aber nur mit demselben Konto und
-  verlangt eine besondere Lieferadresse. Für ~15 USD lohnt der Aufwand kaum.
-
-## 3. Tayda – fast alles Übrige
-
-Warenkorb ist fertig (66 Positionen, 1270 Teile, 2,36 kg, 201.32 USD Ware).
-
-* **Versandart: „DHL Express DDP Shipping" (21.23 USD) wählen**, nicht das
-  „DHL Express 1.00 USD". Beim billigen muss man bei der Lieferung MWST (~CHF 14)
-  plus eine DHL-Gebühr (~CHF 15–20) nachzahlen; DDP enthält alles.
-* Tayda bittet, sich vor dem Befüllen einzuloggen, weil Gast-Warenkörbe verloren
-  gehen können. Falls er leer ist: Warenkorb → **Import** → `warenkorb-tayda.csv`
-  („Add to current cart"). Die Datei hat genau das Format, das Tayda verlangt.
-
-## 4. Conrad – Netzteile und Litze
-
-Warenkorb ist fertig: 2 × Mean Well NGE12E12-P1J (Bestell-Nr. 3164222) und
-1 × Litzensortiment 0,14 mm², 10 Farben à 10 m (2620403). Als **Privatkunde**
-bestellen. Wer in der Nähe einer Conrad-Filiale ist, spart mit Abholung die
-CHF 9.95 Versand.
+Schätzung: Oszillator 11 USD (108 × 108 mm, über dem 100-×-100-Sonderangebot),
+Filter 2 USD, Hauptplatine 2 USD, Versand 28 USD. Der echte Preis steht nach dem
+Hochladen im Warenkorb.
 
 ---
 
-## Was sich gegenüber der Liste vom 21.09. geändert hat
+## 2. LCSC – Stecker und **alle SMD-Chips**
 
-| Änderung | spart (2 Geräte) |
+24 Positionen, 1236 Teile, 43.84 USD Ware.
+
+Neu gegenüber September: weil JLCPCB nicht bestückt, liegen die **SMD-Chips jetzt
+hier im Warenkorb**:
+
+| Anzahl | Chip | LCSC-Nr. | gebraucht | Gehäuse |
+|---|---|---|---|---|
+| 10 | TL074CDR | C12594 | 7 | SOIC-14 |
+| 5 | OPA1662AIDR | C882794 | 3 | SOIC-8 |
+| 10 | 74LVC2G17 | C10429 | 3 | **SOT-23-6, 0,95 mm** |
+
+Beim 74LVC2G17 ist die Reserve Absicht: 0,95 mm Raster von Hand ist die heikelste
+Lötstelle im ganzen Projekt.
+
+* Warenkorb füllen: https://www.lcsc.com/bom → `warenkorb-lcsc.csv` hochladen.
+  Falls eine Mindestmenge nicht stimmt, zeigt LCSC das im Warenkorb an – dann die
+  Menge dort korrigieren und mir sagen, damit die Liste nachgeführt wird.
+* Mit Konto oder als Gast (LCSC legt beim Bezahlen mit PayPal automatisch eins an).
+* **Versand: DHL Express.** Siehe Kasten oben.
+* Mit ~74 USD Gesamtwert liegt die Sendung über der Schweizer MWST-Grenze – bei
+  DHL Express wird das beim Import abgerechnet.
+
+---
+
+## 3. Tayda – fast alles Übrige
+
+64 Positionen, 689 Teile, 113.71 USD Ware.
+
+* **Versandart: „DHL Express DDP Shipping" (21.23 USD) wählen**, nicht das
+  „DHL Express 1.00 USD". Beim billigen muss man bei der Lieferung MWST plus eine
+  DHL-Gebühr nachzahlen; DDP enthält alles.
+* Vor dem Füllen einloggen – Gast-Warenkörbe gehen über Nacht verloren.
+  Warenkorb → **Import** → `warenkorb-tayda.csv` („Add to current cart").
+
+**Nicht durch etwas anderes ersetzen:** die drei **Tandempotis 1 MΩ Kennlinie C**
+(`A-8590`, Tonhöhe). Ich habe am 11.10. Musikding, Reichelt, Thonk und Tubetown
+geprüft – ein 1-MΩ-Doppelpoti mit umgekehrt logarithmischer Kennlinie gibt es in
+Europa nicht, und mit linear oder log verteilen sich die Oktaven falsch
+(`BEDIENFELD-ERGAENZUNGEN.md`, Abschnitt 7). Tayda ist die einzige Quelle.
+
+---
+
+## 4. Conrad – Netzteil und Litze
+
+1 × Mean Well NGE12E12-P1J (Bestell-Nr. 3164222) und 1 × Litzensortiment
+0,14 mm², 10 Farben à 10 m (2620403). Als **Privatkunde** bestellen. Mit Abholung
+in einer Filiale spart man die CHF 9.95.
+
+---
+
+## Was sich gegenüber der Liste vom 22.09. geändert hat
+
+| Änderung | Wirkung |
 |---|---|
-| Bauteile bei Tayda/LCSC statt Distrelec/Musikding (gleiche Hersteller: Alpha-Potis, Royal-Ohm-Widerstände, original JST) | ~CHF 350 |
-| Vierfach-Op-Amp **TL074CDR statt OPA4196** (gleiche Anschlüsse, Simulation deckungsgleich) | ~CHF 55 |
-| −12 V aus einem 1-USD-Wandler statt TRACO ±12 V; +12 V direkt vom Netzteil | ~CHF 45 |
-| Messing-Abstandsbolzen direkt ins Holz statt Einschraubmuffen + Bolzen | ~CHF 45 |
-| Crimpzange SN-28B bei Tayda statt Galaxus | ~CHF 25 |
-| Litze: ein 100-m-Set statt 8 Einzelrollen | ~CHF 25 |
-
-Dazu zwei Korrekturen, die mit Sparen nichts zu tun haben:
-
-* **Tonhöhe- und Cutoff-Potis mit Kennlinie C** statt A – mit der Verdrahtung auf
-  dem Bedienfeld wäre A schlechter als linear gewesen
-  (`Platinen/BEDIENFELD-ERGAENZUNGEN.md`, Abschnitt 7).
-* Die Gerber-Dateien von Oszillator und Filter enthalten jetzt die
-  **Lotpasten-Lage** – ohne sie hätte JLCPCB keine Schablone für die Bestückung
-  schneiden können.
-
-Nicht verändert, obwohl möglich: die Oszillator-Platine auf 100 × 100 mm
-verkleinern (spart ~10 USD, müsste aber neu geroutet werden) und die SMD-Chips
-selbst löten (spart ~40 USD, aber der SOT-23-6-Chip mit 0,95 mm Raster ist von Hand
-heikel).
+| 1 Gerät statt 2 | Ware fällt auf etwa ein Drittel, nicht auf die Hälfte: Widerstände nur in Zehnerschritten, LCSC-Mindestmengen, Versand und Zange halbieren sich nicht |
+| **Arduino und Display fallen weg** | beide vorhanden; damit auch kein 2,8"-Display – das vorhandene 2,2" bleibt, der Frontausschnitt wird kleiner |
+| **Platinen unbestückt** | spart ~48 USD Bestückung, kostet 13 SMD-Lötstellen pro Gerät von Hand |
+| LCSC auf DHL Express | ~13 USD mehr, dafür 4–6 statt 7–15 Werktage |
 
 ## Vor dem Bezahlen kurz prüfen
 
-- [ ] Lötzinn und Entlötlitze vorhanden? Sonst bei Conrad dazu (nicht im Warenkorb).
+- [ ] Bei LCSC **DHL Express** gewählt, nicht Standard Line?
+- [ ] Bei Tayda **DDP** gewählt, nicht das 1-USD-Express?
+- [ ] Bei JLCPCB **PCB Assembly aus** und **Qty 5** bei allen drei?
+- [ ] Lieferadresse 5210 Windisch überall gleich?
+- [ ] Lötzinn, Entlötlitze und **Flussmittel** vorhanden? Flussmittel ist für die
+      SOT-23-6-Chips kein Luxus. Sonst bei Conrad dazu (nicht im Warenkorb).
 - [ ] Frontplatte: höchstens ~3 mm dick an den Buchsen (sonst von hinten aussenken).
-- [ ] Gerät 1 behält das vorhandene 2,2"-Display und den vorhandenen Arduino; für
-      Gerät 2 kommt ein 2,8"-Display (gleicher Chip, grösserer Ausschnitt).
