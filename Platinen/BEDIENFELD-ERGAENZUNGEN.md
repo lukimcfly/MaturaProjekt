@@ -173,3 +173,76 @@ Filter, 100 kΩ) gilt dasselbe.
   Front ist entsprechend grösser. Gerät 1 kann das vorhandene 2,2"-Display behalten.
 * **Knöpfe:** alle mit Madenschraube für 6,35-mm-Achsen; sie halten auch auf den
   6-mm-Achsen der 1-MΩ-Tandempotis.
+
+
+## 9. Stromversorgung – Revision vom 04.11.2026
+
+Abschnitt 6 beschreibt die Versorgung mit dem isolierten Wandler
+`B1212S-2WR3`. **Dieser Abschnitt ersetzt ihn.** Abschnitt 6 bleibt als
+Entwurfsstand stehen.
+
+### Was passiert ist
+
+Der Wandler (LCSC `C5365309`) und die rückstellende Sicherung `RXEF110`
+(`C3760872`) waren bei LCSC beide **rückständig**: im Auftrag `WM2610280010`
+standen sie ohne Preis mit dem Status *Inquiring*, während die übrigen 22
+Positionen bepreist waren. Geliefert wurden sie nicht, und für eine
+Nachbestellung reichte die Zeit nicht.
+
+### Die Lösung: zwei Netzteile in Reihe
+
+Statt aus einer Quelle per Wandler eine zweite zu erzeugen, werden **zwei
+galvanisch getrennte 12-V-Steckernetzteile hintereinandergeschaltet**. Der
+Verbindungspunkt wird die Masse:
+
+| Anschluss | wird zu |
+|---|---|
+| Netzteil A, Plus | `+12 V` |
+| Netzteil A, Minus **+** Netzteil B, Plus | `Masse` |
+| Netzteil B, Minus | `−12 V` |
+
+An `J990` kommen damit wie vorher `+12 V`, Masse und `−12 V` an; die
+Hauptplatine, ihre Sicherungen, Verpolschutzdioden und Siebelkos bleiben
+unverändert. **Auf keiner Platine ändert sich etwas.**
+
+### Warum das elektrisch besser ist als der Wandler
+
+* **Keine Schaltstörungen.** Der B1212S ist ein Schaltwandler mit 30 mV
+  Restwelligkeit typisch, 80 mV maximal, direkt auf der −12-V-Schiene einer
+  Audioschaltung. Zwei lineare oder geregelte Steckernetzteile bringen das
+  nicht ein.
+* **Mehr Reserve.** Der Wandler lieferte 167 mA; ein übliches Steckernetzteil
+  liefert 500 mA und mehr. Die −12-V-Schiene zieht 65 mA typisch.
+* **Symmetrische Schienen.** Der B1212S ist unreguliert und hätte im Leerlauf
+  deutlich über 12 V geliefert; zwei geregelte Netzteile liegen beide auf 12 V.
+* **Ein Bauteil weniger** und der Elko 22 µF am Wandlereingang entfällt.
+
+### Preis dafür
+
+* Ein **zweiter Netzstecker** und ein zweites Netzteil ausserhalb des Gehäuses.
+* Eine **zweite DC-Einbaubuchse** in der Rückwand (war als Reserve bestellt).
+* Beide Netzteile müssen **zweipolig** sein. Ein Netzteil mit Schutzleiter
+  würde eine Schiene auf Erde legen und die andere Quelle kurzschliessen.
+* Der Netzschalter trennt nur `+12 V`; beim Ausschalten steht `−12 V` kurz
+  noch an. Für einen sauberen Schnitt beide Netzteile auf eine schaltbare
+  Steckdosenleiste legen.
+
+### Sicherung
+
+Die `RXEF110` entfällt ersatzlos. Der Schutz bleibt dreifach gegeben: das
+Steckernetzteil hat eigenen Kurzschlussschutz, `F901`/`F902` sichern beide
+Schienen auf der Hauptplatine, `D907`/`D908` schützen gegen Verpolung.
+Vorgesehen ist, zwei der übrigen Sicherungsclips (`C151075`) in die
+`+12-V`-Leitung zu setzen und später eine 5 × 20 mm **T 1 A** einzusetzen; bis
+dahin sitzt dort eine Drahtbrücke. Die vorhandenen `T 500 mA` sind zu klein –
+das Gerät zieht rund 0,5 A.
+
+### Strombilanz neu
+
+| Schiene | Last | Quelle |
+|---|---|---|
+| `+12 V` | Op-Amps ~65 mA, LM386 bis ~0,3 A, Arduino + Display ~150 mA | Netzteil A, 1 A |
+| `−12 V` | nur Op-Amps, 65 mA typisch, ~110 mA maximal | Netzteil B, ≥ 150 mA |
+
+Der Eingangsstrom des Wandlers (~80 mA) fällt weg, Netzteil A hat dadurch mehr
+Reserve als in der ursprünglichen Planung.
